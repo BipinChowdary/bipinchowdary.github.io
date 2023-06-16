@@ -169,14 +169,16 @@ section .title::after {
 /* home section styling */
 .home {
   display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   background: url("images/banner.jpg");
   background-size: 100% 100%;
   height: 100vh;
   color: #fff;
   min-height: 500px;
-  background-attachment: local;
   font-family: "Ubuntu", sans-serif;
 }
+
 .home .max-width {
   width: 100%;
   display: flex;
@@ -260,10 +262,11 @@ section .title::after {
   min-height: 100vh;
 }
 @media (prefers-color-scheme: dark) {
-  .about {
-    color: #000 !important;
+  .about.light-mode {
+    color: #111;
   }
 }
+
 .about .title::after {
   content: "who i am";
 }
@@ -361,7 +364,7 @@ section .title::after {
 /* skills section styling */
 .skills {
   color: #111;
-  background: url("images/148.jpg");
+  background: #ffff;
   background-size: 100% 100%;
   min-height: 100vh;
 }
@@ -512,7 +515,7 @@ section .title::after {
 /* contact section styling */
 .contact {
   color: #110;
-  background: url("images/148.jpg");
+  background: #ffff;
   background-size: cover;
   min-height: 700px;
 }
