@@ -254,7 +254,7 @@ section .title::after {
 
 /* about section styling */
 .about {
-  color: #111;
+  color: #110;
   background: url("images/17580.jpg");
   background-size: 100% 100%;
   min-height: 100vh;
