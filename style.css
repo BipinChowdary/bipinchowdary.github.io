@@ -167,16 +167,23 @@ section .title::after {
 }
 
 /* home section styling */
+body {
+  background: url("images/banner.jpg") no-repeat center bottom fixed;
+  background-size: cover;
+}
+
 .home {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  background: url("images/banner.jpg");
-  background-size: 100% 100%;
   height: 100vh;
   color: #fff;
   min-height: 500px;
   font-family: "Ubuntu", sans-serif;
+}
+
+.home-content {
+  margin-top: auto;
 }
 
 .home .max-width {
