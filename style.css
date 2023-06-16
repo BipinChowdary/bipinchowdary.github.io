@@ -255,7 +255,7 @@ section .title::after {
 /* about section styling */
 .about {
   color: #111;
-  background: #fff;
+  background: url("images/17580.jpg");
   background-size: 100% 100%;
   min-height: 100vh;
 }
@@ -358,7 +358,7 @@ section .title::after {
 /* skills section styling */
 .skills {
   color: #111;
-  background: #fff;
+  background: url("images/17580.jpg");
   background-size: 100% 100%;
   min-height: 100vh;
 }
@@ -504,7 +504,7 @@ section .title::after {
 /* contact section styling */
 .contact {
   color: #111;
-  background: #fff;
+  background: url("images/17580.jpg");
   background-size: cover;
   min-height: 700px;
 }
