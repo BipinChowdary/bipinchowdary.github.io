@@ -183,14 +183,15 @@ section .title::after {
 
 .images {
   width: 50vw;
-  height: 88vh;
+  height: 70vh;
   position: absolute;
   bottom: 0;
   right: 15px;
 }
 
 .images img {
-  height: 100%;
+  max-width: 90%;
+  height: auto;
   position: absolute;
   left: 50%;
   bottom: 0;
@@ -200,8 +201,8 @@ section .title::after {
 
 @media (max-width: 600px) {
   .images {
-    width: 48vw;
-    height: 48vh;
+    width: 120vw;
+    height: 120vh;
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
