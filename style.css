@@ -178,6 +178,7 @@ section .title::after {
   background-attachment: local;
   font-family: "Ubuntu", sans-serif;
   position: relative; /* Add this line */
+  overflow: hidden;
 }
 
 .images {
