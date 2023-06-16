@@ -167,19 +167,57 @@ section .title::after {
 }
 
 /* home section styling */
-body {
-  background: url("images/banner.jpg") no-repeat center bottom fixed;
-  background-size: cover;
-}
-
 .home {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  background: url("images/banner.jpg");
+  background-size: 100% 100%;
   height: 100vh;
   color: #fff;
   min-height: 500px;
+  background-attachment: local;
   font-family: "Ubuntu", sans-serif;
+  position: relative; /* Add this line */
+}
+
+.images {
+  width: 50vw;
+  height: 88vh;
+  position: absolute;
+  bottom: 0;
+  right: 15px;
+}
+
+.images img {
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  transition: bottom 1s, left 1s;
+}
+
+@media (max-width: 600px) {
+  .images {
+    width: 48vw;
+    height: 48vh;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    right: unset;
+  }
+}
+
+.images:hover .shape{
+  bottom: 40px;
+}
+
+.images:hover .boy{
+  left: 45%;
+  
+}
+
+.images:hover .back{
+  right: 45%;
 }
 
 .home-content {
@@ -784,44 +822,4 @@ footer span a:hover {
     font-size: 23px;
     line-height: 38px;
   }
-}
-.images {
-  width: 50vw;
-  height: 88vh;
-  position: absolute;
-  bottom: 0;
-  right: 15px;
-}
-
-.images img {
-  height: 100%;
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  transition: bottom 1s, left 1s;
-}
-
-@media (max-width: 600px) {
-  .images {
-    width: 48vw;
-    height: 48vh;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    right: unset;
-  }
-}
-
-.images:hover .shape{
-  bottom: 40px;
-}
-
-.images:hover .boy{
-  left: 45%;
-  
-}
-
-.images:hover .back{
-  right: 45%;
 }
