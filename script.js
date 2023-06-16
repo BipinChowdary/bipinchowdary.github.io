@@ -81,4 +81,14 @@ $(document).ready(function(){
             alert('Incorrect password. Try again.');
         }
     });
+
+    // Function to set the height of the .images container dynamically
+    function setImagesContainerHeight() {
+        const windowHeight = $(window).height();
+        $('.images').height(windowHeight);
+    }
+
+    // Call the function on page load and window resize
+    setImagesContainerHeight();
+    $(window).resize(setImagesContainerHeight);
 });
