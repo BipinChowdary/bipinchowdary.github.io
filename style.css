@@ -259,9 +259,10 @@ section .title::after {
   background-size: 100% 100%;
   min-height: 100vh;
 }
-
-.about * {
-  color: #111 !important;
+@media (prefers-color-scheme: dark) {
+  .about {
+    color: #000 !important;
+  }
 }
 .about .title::after {
   content: "who i am";
