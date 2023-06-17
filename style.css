@@ -16,7 +16,7 @@ html {
   width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #111;
+  background: #111111;
 }
 ::-webkit-scrollbar-thumb {
   background: crimson;
@@ -68,7 +68,7 @@ section .title::before {
   left: 50%;
   width: 180px;
   height: 3px;
-  background: #111;
+  background: #111111;
   transform: translateX(-50%);
 }
 section .title::after {
@@ -78,7 +78,7 @@ section .title::after {
   font-size: 20px;
   color: crimson;
   padding: 0 5px;
-  background: #fff;
+  background: #FFFFFF;
   transform: translateX(-50%);
 }
 
@@ -101,7 +101,7 @@ section .title::after {
   justify-content: space-between;
 }
 .navbar .logo a {
-  color: #fff;
+  color: #FFFFFF;
   font-size: 35px;
   font-weight: 600;
 }
@@ -110,7 +110,7 @@ section .title::after {
   transition: all 0.3s ease;
 }
 .navbar.sticky .logo a span {
-  color: #fff;
+  color: #FFFFFF;
 }
 .navbar .menu li {
   list-style: none;
@@ -118,7 +118,7 @@ section .title::after {
 }
 .navbar .menu li a {
   display: block;
-  color: #fff;
+  color: #FFFFFF;
   font-size: 18px;
   font-weight: 500;
   margin-left: 25px;
@@ -128,12 +128,12 @@ section .title::after {
   color: crimson;
 }
 .navbar.sticky .menu li a:hover {
-  color: #fff;
+  color: #FFFFFF;
 }
 
 /* menu btn styling */
 .menu-btn {
-  color: #fff;
+  color: #FFFFFF;
   font-size: 23px;
   cursor: pointer;
   display: none;
@@ -147,7 +147,7 @@ section .title::after {
   bottom: 10px;
   text-align: center;
   line-height: 45px;
-  color: #fff;
+  color: #FFFFFF;
   z-index: 9999;
   font-size: 30px;
   border-radius: 6px;
@@ -173,7 +173,7 @@ section .title::after {
   background-size: 100% 100%;
   bottom: 0;
   height: 100vh;
-  color: #fff;
+  color: #FFFFFF;
   min-height: 500px;
   background-attachment: local;
   font-family: "Ubuntu", sans-serif;
@@ -269,7 +269,7 @@ section .title::after {
 .home .home-content a {
   display: inline-block;
   background: crimson;
-  color: #fff;
+  color: #FFFFFF;
   font-size: 25px;
   padding: 12px 36px;
   margin-top: 20px;
@@ -285,7 +285,7 @@ section .title::after {
 .home .home-content a {
   display: inline-block;
   background: crimson;
-  color: #fff;
+  color: #FFFFFF;
   font-size: 25px;
   padding: 12px 36px;
   margin-top: 20px;
@@ -304,14 +304,14 @@ section .title::after {
 
 /* about section styling */
 .about {
-  color: #111;
-  background: #ffff;
+  color: #111111;
+  background-color: #FFFFFF;
   background-size: 100% 100%;
   min-height: 100vh;
 }
 @media (prefers-color-scheme: dark) {
   .about.light-mode {
-    color: #111;
+    color: #111111;
   }
 }
 
@@ -344,7 +344,7 @@ section .title::after {
 .about .about-content .right a {
   display: inline-block;
   background: crimson;
-  color: #fff;
+  color: #FFFFFF;
   font-size: 20px;
   font-weight: 500;
   padding: 10px 30px;
@@ -361,19 +361,19 @@ section .title::after {
 /* Hobbies section styling */
 .Hobbies,
 .Favourites {
-  color: #fff;
-  background: #111;
+  color: #FFFFFF;
+  background: #111111;
   background-size: cover;
   background-size: 100% 100%;
   min-height: 100vh;
 }
 .Hobbies .title::before,
 .Favourites .title::before {
-  background: #fff;
+  background: #FFFFFF;
 }
 .Hobbies .title::after,
 .Favourites .title::after {
-  background: #111;
+  background: #111111;
   content: "what i do";
 }
 .Hobbies .serv-content .card {
@@ -401,7 +401,7 @@ section .title::after {
   transition: color 0.3s ease;
 }
 .Hobbies .serv-content .card:hover i {
-  color: #fff;
+  color: #FFFFFF;
 }
 .Hobbies .serv-content .card .text {
   font-size: 25px;
@@ -411,14 +411,14 @@ section .title::after {
 
 /* skills section styling */
 .skills {
-  color: #111;
-  background: #ffff;
+  color: #111111;
+  background:#FFFFFF;
   background-size: 100% 100%;
   min-height: 100vh;
 }
 @media (prefers-color-scheme: dark) {
   .skills.light-mode {
-    color: #111;
+    color: #111111;
   }
 }
 .skills .title::after {
@@ -441,7 +441,7 @@ section .title::after {
 .skills .skills-content .left a {
   display: inline-block;
   background: crimson;
-  color: #fff;
+  color: #FFFFFF;
   font-size: 18px;
   font-weight: 500;
   padding: 8px 16px;
@@ -536,7 +536,7 @@ section .title::after {
   transition: all 0.3s ease;
 }
 .Favourites .carousel .card:hover img {
-  border-color: #fff;
+  border-color: #FFFFFF;
 }
 .owl-dots {
   text-align: center;
@@ -563,13 +563,13 @@ section .title::after {
 /* contact section styling */
 .contact {
   color: #110;
-  background: #ffff;
+  background-color: #FFFFFF;
   background-size: cover;
   min-height: 700px;
 }
 @media (prefers-color-scheme: dark) {
   .contant.light-mode {
-    color: #111;
+    color: #111111;
   }
 }
 .contact .title::after {
@@ -667,7 +667,7 @@ section .title::after {
   align-items: center;
 }
 .right form .button-area button {
-  color: #fff;
+  color: #FFFFFF;
   display: block;
   width: 160px !important;
   height: 45px;
@@ -687,9 +687,9 @@ section .title::after {
 }
 /* footer section styling */
 footer {
-  background: #111;
+  background: #111111;
   padding: 15px 23px;
-  color: #fff;
+  color: #FFFFFF;
   text-align: center;
 }
 footer span a {
@@ -727,7 +727,7 @@ footer span a:hover {
     width: 100%;
     left: -100%;
     top: 0;
-    background: #111;
+    background: #111111;
     text-align: center;
     padding-top: 80px;
     transition: all 0.3s ease;
