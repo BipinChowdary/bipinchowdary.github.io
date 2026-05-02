@@ -2636,3 +2636,1288 @@ h3 {
     width: 130px; /* Adjusted for smaller screens */
   }
 }
+
+/* =========================================================
+   RESPONSIVE PRESERVE PATCH
+   Keeps the 1920x1080 desktop composition intact, then only
+   relaxes fixed heights/margins on smaller screens.
+   ========================================================= */
+
+/* Mobile hamburger is hidden on the original desktop layout. */
+.nav-toggle {
+  display: none;
+  border: 3px solid var(--primary-color);
+  background: var(--glass);
+  color: var(--primary-color);
+  border-radius: 8px;
+  width: 44px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 10001;
+}
+
+.navbar .menu li a.active-link {
+  color: var(--primary-color);
+  text-shadow: 0px 1px 3px #000000be;
+}
+
+/* The about photo should read as one bordered image, not a second bulky box. */
+.about .about-content .left {
+  flex: 0 0 min(34vw, 430px);
+  width: auto;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  overflow: visible;
+}
+
+.about .about-content .left:hover {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.about .about-content .left::before {
+  display: none;
+}
+
+.about .about-content .left img {
+  border: 3px solid rgba(255, 255, 255, 0.56);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.14);
+}
+
+/* Keep the CV buttons in a real row after fixing the invalid HTML wrapper. */
+.read-cv-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 18px;
+}
+
+.read-cv-container .read-cv,
+.read-cv-container .read-cv2 {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Avoid sharp clipping around the project side cards on desktop/tablet. */
+.projects-container,
+.projects-container .max-width,
+.projects {
+  overflow: visible;
+}
+
+.projects .card,
+.projects .card-content,
+.card-left,
+.card-right {
+  min-width: 0;
+}
+
+.contact .column.right .icons-row a:not(.glassIco) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-color);
+  background: var(--glass);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  width: 70px;
+  height: 70px;
+  border-radius: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.46);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 25px;
+}
+
+/* Laptop/tablet scaling: preserve the original composition but reduce overflow. */
+@media (max-width: 1350px) {
+  .max-width {
+    padding-left: 55px;
+    padding-right: 55px;
+  }
+
+  .navbar .logo a {
+    font-size: clamp(26px, 2.6vw, 35px);
+  }
+
+  .navbar .menu li a {
+    margin-left: clamp(12px, 1.7vw, 25px);
+    font-size: clamp(15px, 1.35vw, 18px);
+  }
+
+  .theme-toggle-btn {
+    padding: 8px 14px;
+  }
+
+  .about .about-content,
+  .skills .skills-content,
+  .contact .contact-content {
+    gap: clamp(18px, 2.2vw, 30px);
+  }
+
+  .about .about-content .right {
+    margin-left: clamp(18px, 3vw, 40px);
+  }
+
+  .about .about-content .right p,
+  .skills .skills-content .left p {
+    font-size: clamp(14px, 1.12vw, 16px);
+    line-height: 1.45;
+  }
+
+  .card-right h2 {
+    font-size: clamp(1.35rem, 2.05vw, 1.8rem);
+  }
+
+  .card-right p,
+  .card-points li {
+    font-size: clamp(14px, 1.28vw, 18px);
+  }
+
+  .explore-btn {
+    font-size: clamp(20px, 2.2vw, 30px);
+  }
+
+  .contact .contact-content {
+    margin-top: 150px;
+    padding-left: clamp(20px, 3vw, 40px);
+    padding-right: clamp(20px, 3vw, 40px);
+  }
+
+  .contact .contact-content .left {
+    margin-left: clamp(-70px, -4vw, -20px);
+  }
+
+  .contact .contact-content .right {
+    margin-right: clamp(-70px, -4vw, -20px);
+  }
+}
+
+/* Tablet and phone: stop using full-screen fixed boxes so text/images cannot overlap. */
+@media (max-width: 947px) {
+  html {
+    scroll-padding-top: 86px;
+  }
+
+  .max-width {
+    max-width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .navbar {
+    padding: 18px 0;
+  }
+
+  .navbar.sticky {
+    padding: 9px 0;
+  }
+
+  .navbar .max-width {
+    gap: 12px;
+  }
+
+  .navbar .logo a,
+  .navbar .logo a span,
+  .navbar.sticky .logo a,
+  .navbar.sticky .logo a span {
+    color: var(--primary-color);
+    font-size: clamp(22px, 6vw, 32px);
+    text-shadow: 0px 1px 3px #000000be;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    order: 3;
+  }
+
+  .theme-selector {
+    order: 2;
+    margin-left: auto;
+  }
+
+  .navbar .menu {
+    position: fixed;
+    top: 78px;
+    left: 50%;
+    width: min(92vw, 420px);
+    height: auto;
+    max-height: calc(100svh - 100px);
+    transform: translateX(-50%) translateY(-18px) scale(0.98);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    background: var(--glass);
+    border: 3px solid rgba(255, 255, 255, 0.55);
+    border-radius: 20px;
+    padding: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    transition: all 0.25s ease;
+    z-index: 10000;
+  }
+
+  .navbar .menu.active {
+    left: 50%;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+
+  .navbar .menu li {
+    display: block;
+  }
+
+  .navbar .menu li a {
+    margin: 8px 0;
+    padding: 12px 14px;
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+    color: var(--text-alt);
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  .navbar .menu li a:hover,
+  .navbar .menu li a.active-link {
+    color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.22);
+  }
+
+  .theme-toggle-btn {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin-top: 0;
+    width: 42px;
+    height: 42px;
+  }
+
+  .theme-dropdown {
+    right: 0;
+    top: 52px;
+    width: min(82vw, 270px);
+    max-height: 68svh !important;
+    overflow-y: auto !important;
+  }
+
+  .about-container,
+  .Hobbies-container,
+  .skills-container,
+  .projects-container,
+  .contact-container {
+    width: 100%;
+    height: auto;
+    min-height: 100svh;
+    margin-top: 0;
+    padding: 92px 12px 34px;
+    overflow: visible;
+  }
+
+  .about,
+  .skills,
+  .contact {
+    width: 100%;
+    height: auto;
+    min-height: calc(100svh - 126px);
+    padding: 28px 16px;
+    overflow: visible;
+  }
+
+  .about .title,
+  .skills .title,
+  .contact .title,
+  .projects-container .title,
+  .Hobbies .title {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 0 0 10px;
+    font-size: clamp(32px, 8vw, 42px);
+  }
+
+  .about .sub,
+  .skills .sub,
+  .contact .sub,
+  .projects-container .sub,
+  .Hobbies .sub,
+  .sub {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 0 auto 26px;
+    white-space: nowrap;
+  }
+
+  .about .about-content,
+  .skills .skills-content,
+  .contact .contact-content,
+  .Hobbies .serv-content {
+    margin-top: 0;
+    padding: 0;
+    height: auto;
+    align-items: stretch;
+  }
+
+  .about .about-content {
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .about .about-content .left {
+    flex: none;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+  }
+
+  .about .about-content .left img {
+    width: min(100%, 390px);
+    max-width: 390px;
+  }
+
+  .about .about-content .right {
+    margin-left: 0;
+    flex: none;
+    width: 100%;
+  }
+
+  .about .about-content .right .text {
+    font-size: clamp(22px, 5.5vw, 28px);
+    text-align: center;
+  }
+
+  .about .about-content .right p,
+  .skills .skills-content .left p {
+    text-align: left;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .about .about-content .right a {
+    display: table;
+    margin: 20px auto 0;
+  }
+
+  .Hobbies-container {
+    justify-content: flex-start;
+  }
+
+  .Hobbies .serv-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    width: 100%;
+  }
+
+  .Hobbies .serv-content .card,
+  .Favourites .serv-content .card {
+    width: 100%;
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 34px 20px;
+    min-height: auto;
+  }
+
+  .Hobbies .serv-content .card .box,
+  .Favourites .serv-content .card .box {
+    margin-top: 0;
+  }
+
+  .Hobbies .serv-content .card i,
+  .Favourites .serv-content .card i {
+    font-size: clamp(58px, 16vw, 84px);
+  }
+
+  .skills .skills-content {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .skills .skills-content .column {
+    width: 100%;
+  }
+
+  .skills .skills-content .left .text {
+    text-align: center;
+  }
+
+  .skills .skills-content .right .info {
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .skills .skills-content .right span {
+    font-size: 14px;
+  }
+
+  .read-cv-container {
+    justify-content: center;
+  }
+
+  .projects-container {
+    gap: 10px;
+    margin-top: 0;
+    justify-content: flex-start;
+  }
+
+  .projects-container .max-width {
+    margin-top: 0;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .projects {
+    height: auto;
+    min-height: 640px;
+    width: 100%;
+    overflow: visible;
+    touch-action: pan-y;
+  }
+
+  .projects .card {
+    width: min(92vw, 520px);
+    height: auto;
+    min-height: 600px;
+    margin-top: 0;
+    padding: 0;
+    border-radius: 22px;
+  }
+
+  .projects .card-content {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+
+  .card-left {
+    flex: none;
+    height: auto;
+    padding: 18px;
+    gap: 16px;
+  }
+
+  .card-left img {
+    max-width: 100%;
+    margin-top: 0;
+    max-height: 210px;
+    object-fit: contain;
+  }
+
+  .explore-btn {
+    margin-bottom: 0;
+    font-size: 20px;
+    padding: 10px 16px;
+  }
+
+  .card-right {
+    flex: none;
+    padding: 18px 20px 24px;
+    gap: 12px;
+  }
+
+  .card-right h2 {
+    font-size: clamp(22px, 6vw, 30px);
+  }
+
+  .card-right p,
+  .card-points li {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .card-points {
+    padding-top: 4px;
+  }
+
+  .navigation-dots {
+    margin-top: 0;
+    padding-bottom: 10px;
+  }
+
+  .dot {
+    margin-top: 0;
+  }
+
+  .contact .contact-content {
+    flex-direction: column;
+    gap: 22px;
+    margin-top: 0;
+    padding: 0;
+  }
+
+  .contact .contact-content .column.left,
+  .contact .contact-content .column.right,
+  .contact .contact-content .left,
+  .contact .contact-content .right {
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    flex: none;
+  }
+
+  .contact .contact-content .text {
+    font-size: clamp(28px, 8vw, 36px);
+    text-align: center;
+  }
+
+  .contact .contact-content .row {
+    min-height: 92px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+
+  .contact .contact-content .row .info {
+    margin-left: 18px;
+    min-width: 0;
+  }
+
+  .contact .contact-content .info .sub-title {
+    word-break: break-word;
+  }
+
+  .contact .column.right .icons-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(64px, 1fr));
+    gap: 16px;
+    width: 100%;
+    justify-items: center;
+  }
+
+  .contact .column.right .icons-row a,
+  .contact .column.right .icons-row a:not(.glassIco) {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 0;
+  }
+
+  .contact .column.right .icons-row a i {
+    font-size: 42px !important;
+  }
+
+  .footer-text {
+    margin-top: 20px;
+    padding: 20px;
+    font-size: clamp(22px, 6vw, 28px);
+    line-height: 1.35;
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .max-width {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .navbar .max-width {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .navbar .logo a,
+  .navbar .logo a span,
+  .navbar.sticky .logo a,
+  .navbar.sticky .logo a span {
+    font-size: clamp(20px, 5.7vw, 26px);
+  }
+
+  .theme-selector {
+    margin-left: 0;
+  }
+
+  .theme-toggle-btn,
+  .nav-toggle {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+  }
+
+  .about-container,
+  .Hobbies-container,
+  .skills-container,
+  .projects-container,
+  .contact-container {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .about,
+  .skills,
+  .contact {
+    border-radius: 18px;
+    padding: 24px 12px;
+  }
+
+  .about .about-content .right p,
+  .skills .skills-content .left p {
+    font-size: 14px;
+  }
+
+  .projects {
+    min-height: 690px;
+  }
+
+  .projects .card {
+    width: 92vw;
+    min-height: 650px;
+  }
+
+  .card-left img {
+    max-height: 180px;
+  }
+
+  .contact .column.right .icons-row {
+    grid-template-columns: repeat(2, minmax(64px, 1fr));
+  }
+
+  .contact .contact-content .row {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 380px) {
+  .navbar .logo a,
+  .navbar .logo a span,
+  .navbar.sticky .logo a,
+  .navbar.sticky .logo a span {
+    font-size: 18px;
+  }
+
+  .projects {
+    min-height: 730px;
+  }
+
+  .projects .card {
+    min-height: 700px;
+  }
+
+  .card-right p,
+  .card-points li {
+    font-size: 14px;
+  }
+}
+
+/* =========================================================
+   FINAL PRECISION PATCH FROM SCREENSHOT NOTES
+   - Keeps original desktop home composition unchanged
+   - Fixes nav-click alignment using dynamic navbar height
+   - Prevents mobile project/hobby card overlap
+   - Restores subtitle side bars inside the section frame
+   - Aligns desktop CV buttons and wraps contact footer cleanly
+   ========================================================= */
+
+:root {
+  --site-nav-height: 82px;
+}
+
+#about,
+#Hobbies,
+#skills,
+#projects,
+#contact {
+  scroll-margin-top: calc(var(--site-nav-height) + 12px);
+}
+
+/* Keep the rocket consistently inside the visible page frame. */
+.scroll-up-btn {
+  right: clamp(18px, 2vw, 30px);
+  bottom: clamp(18px, 2vw, 30px);
+}
+
+.scroll-up-btn.show {
+  bottom: clamp(24px, 2.6vw, 34px);
+}
+
+/* Desktop skills buttons: same row, same visual width, no awkward gap. */
+@media (min-width: 948px) {
+  .skills .skills-content .right {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .skills .skills-content .right .bars {
+    width: 100%;
+  }
+
+  .read-cv-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(10px, 1vw, 16px);
+    justify-content: stretch;
+    align-items: stretch;
+    margin-top: 16px;
+  }
+
+  .read-cv-container .read-cv,
+  .read-cv-container .read-cv2 {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+    font-size: clamp(13px, 1.05vw, 17px);
+  }
+}
+
+/* Contact footer structure: desktop stays one clean line where space allows. */
+.footer-text {
+  overflow-wrap: normal;
+  word-break: normal;
+  text-wrap: balance;
+}
+
+.footer-text a {
+  white-space: nowrap;
+}
+
+/* Tablet/mobile title bars: remove the old absolute left/right offsets that pushed bars outside the frame. */
+@media (max-width: 947px) {
+  .about .sub,
+  .skills .sub,
+  .contact .sub,
+  .projects-container .sub,
+  .Hobbies .sub,
+  .sub {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(8px, 2.4vw, 12px);
+    padding: 0 clamp(8px, 2vw, 12px);
+    overflow: hidden;
+  }
+
+  .about .sub::before,
+  .about .sub::after,
+  .skills .sub::before,
+  .skills .sub::after,
+  .contact .sub::before,
+  .contact .sub::after,
+  .projects-container .sub::before,
+  .projects-container .sub::after,
+  .Hobbies .sub::before,
+  .Hobbies .sub::after,
+  .Favourites .sub::before,
+  .Favourites .sub::after {
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    width: auto !important;
+    max-width: clamp(30px, 11vw, 46px) !important;
+    min-width: clamp(28px, 9vw, 42px) !important;
+    height: 0 !important;
+    max-height: none !important;
+    flex: 0 1 clamp(28px, 11vw, 46px) !important;
+    margin: 0 !important;
+    background: transparent !important;
+    border-bottom: 3.5px solid var(--text-alt) !important;
+  }
+
+  /* Section target boxes should start cleanly below the fixed nav, not halfway under it. */
+  .about-container,
+  .Hobbies-container,
+  .skills-container,
+  .projects-container,
+  .contact-container {
+    padding-top: calc(var(--site-nav-height) + 22px);
+  }
+
+  .about,
+  .skills,
+  .contact {
+    min-height: auto;
+  }
+
+  /* Hobbies: compact mobile cards that stack normally and never overlap each other. */
+  .Hobbies .serv-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+    align-items: stretch;
+    overflow: visible;
+  }
+
+  .Hobbies .serv-content .card,
+  .Favourites .serv-content .card {
+    position: relative;
+    width: min(100%, 620px);
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    margin: 0 auto;
+    padding: 28px 18px;
+    overflow: hidden;
+  }
+
+  .Hobbies .serv-content .card .box,
+  .Favourites .serv-content .card .box {
+    margin-top: 0 !important;
+    transform: none !important;
+  }
+
+  .Hobbies .serv-content .card:hover .box,
+  .Favourites .serv-content .card:hover .box {
+    transform: none !important;
+  }
+
+  .Hobbies .serv-content .card i,
+  .Favourites .serv-content .card i {
+    font-size: clamp(48px, 13vw, 68px);
+    line-height: 1;
+  }
+
+  .Hobbies .serv-content .card .text,
+  .Favourites .serv-content .card .text {
+    font-size: clamp(24px, 6vw, 34px);
+    line-height: 1.2;
+    margin: 16px 0 10px;
+  }
+
+  .Hobbies .serv-content .card p,
+  .Favourites .serv-content .card p {
+    font-size: clamp(14px, 3.8vw, 17px);
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  /* Projects: uniform mobile card sizing, smaller inner elements, dots stay below the card. */
+  .projects-container {
+    min-height: auto;
+    overflow: visible;
+    padding-bottom: 44px;
+  }
+
+  .projects-container .max-width {
+    overflow: visible;
+  }
+
+  .projects {
+    height: clamp(620px, 168vw, 735px);
+    min-height: 0;
+    align-items: flex-start;
+    overflow: visible;
+    touch-action: pan-y;
+  }
+
+  .projects .card {
+    width: min(90vw, 500px);
+    height: 100%;
+    min-height: 0;
+    max-height: none;
+    margin-top: 0;
+    padding: 0;
+    border-radius: 22px;
+    overflow: hidden;
+  }
+
+  .projects .card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    height: auto;
+  }
+
+  .projects .card-left {
+    flex: none;
+    height: auto;
+    padding: 14px;
+    gap: 12px;
+  }
+
+  .projects .card-left img {
+    width: 100%;
+    max-height: clamp(110px, 30vw, 165px);
+    margin: 0;
+    object-fit: contain;
+  }
+
+  .projects .explore-btn {
+    margin: 0;
+    padding: 9px 14px;
+    font-size: clamp(16px, 4.5vw, 20px);
+    line-height: 1.15;
+  }
+
+  .projects .card-right {
+    flex: none;
+    padding: 16px 18px 18px;
+    gap: 9px;
+  }
+
+  .projects .card-right h2 {
+    font-size: clamp(20px, 5.4vw, 28px);
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  .projects .card-right p {
+    font-size: clamp(13px, 3.5vw, 15px);
+    line-height: 1.38;
+    text-align: left;
+    margin: 0;
+  }
+
+  .projects .card-points {
+    padding-top: 2px;
+    margin: 0;
+  }
+
+  .projects .card-points li {
+    font-size: clamp(13px, 3.5vw, 15px);
+    line-height: 1.35;
+    margin: 4px 0;
+  }
+
+  .navigation-dots {
+    position: relative;
+    margin-top: 10px;
+    padding-bottom: 18px;
+    z-index: 20;
+  }
+
+  .navigation-dots .dot,
+  .dot {
+    margin-top: 0 !important;
+  }
+
+  /* Mobile contact footer: keep "Bipin Chowdary" together on its own line. */
+  .footer-text {
+    width: 100%;
+    max-width: 100%;
+    padding: 18px 14px;
+    font-size: clamp(24px, 7vw, 30px);
+    line-height: 1.28;
+    text-align: center;
+  }
+
+  .footer-text .footer-prefix,
+  .footer-text a,
+  .footer-text .footer-rights {
+    display: block;
+  }
+
+  .footer-text a {
+    white-space: nowrap;
+  }
+
+  .contact .contact-content .info .sub-title {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-container,
+  .Hobbies-container,
+  .skills-container,
+  .projects-container,
+  .contact-container {
+    padding-top: calc(var(--site-nav-height) + 24px);
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .about,
+  .skills,
+  .contact {
+    padding: 26px 12px 30px;
+  }
+
+  .about .about-content .left img {
+    width: min(100%, 340px);
+  }
+
+  .projects {
+    height: clamp(650px, 176vw, 725px);
+  }
+
+  .projects .card {
+    width: min(88vw, 360px);
+  }
+
+  .projects .card-left {
+    padding: 12px;
+  }
+
+  .projects .card-left img {
+    max-height: 122px;
+  }
+
+  .projects .card-right {
+    padding: 14px 17px 16px;
+    gap: 8px;
+  }
+
+  .contact .column.right .icons-row {
+    grid-template-columns: repeat(2, minmax(64px, 1fr));
+    gap: 18px 28px;
+    justify-items: center;
+  }
+}
+
+@media (max-width: 430px) {
+  .projects {
+    height: 705px;
+  }
+
+  .projects .card-left img {
+    max-height: 110px;
+  }
+
+  .projects .card-right h2 {
+    font-size: 21px;
+  }
+
+  .projects .card-right p,
+  .projects .card-points li {
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  .Hobbies .serv-content .card,
+  .Favourites .serv-content .card {
+    padding: 24px 16px;
+  }
+}
+
+@media (max-width: 380px) {
+  .projects {
+    height: 720px;
+  }
+
+  .projects .card-right h2 {
+    font-size: 19px;
+  }
+
+  .projects .card-right p,
+  .projects .card-points li {
+    font-size: 12.5px;
+  }
+
+  .footer-text {
+    font-size: 23px;
+  }
+}
+
+/* =========================================================
+   FINAL PROJECT CARD 16:9 STABILITY PATCH
+   - Keeps the original desktop composition intact
+   - Makes every project image area a true 16:9 image border
+   - Removes the extra boxed look around the mobile image area
+   - Locks mobile project card structure so slides do not jump
+   - Keeps navigation dots below the card, never overlapped
+   ========================================================= */
+
+.projects .card-left img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px;
+  border: 3px solid rgba(255, 255, 255, 0.62);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+@media (min-width: 948px) {
+  .projects .card-left {
+    justify-content: center;
+  }
+
+  .projects .card-left img {
+    max-width: min(500px, 92%);
+    max-height: none;
+  }
+}
+
+@media (max-width: 947px) {
+  .projects-container {
+    padding-bottom: 56px;
+  }
+
+  .projects {
+    width: 100%;
+    height: clamp(760px, 190vw, 835px) !important;
+    min-height: 0 !important;
+    align-items: flex-start;
+    overflow: visible;
+    touch-action: pan-y;
+  }
+
+  .projects .card {
+    width: min(90vw, 500px) !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin-top: 0 !important;
+    padding: 0 !important;
+    border-radius: 24px !important;
+    overflow: hidden !important;
+  }
+
+  .projects .card-content {
+    height: 100% !important;
+    display: grid !important;
+    grid-template-rows: auto minmax(0, 1fr);
+    align-items: stretch !important;
+  }
+
+  .projects .card-left {
+    height: auto !important;
+    flex: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 14px !important;
+    padding: 16px 16px 14px !important;
+    background: transparent !important;
+  }
+
+  .projects .card-left img {
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important;
+    object-fit: cover !important;
+    margin: 0 !important;
+    border-radius: 14px !important;
+  }
+
+  .projects .explore-btn {
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+    padding: 10px 18px !important;
+    font-size: clamp(18px, 5vw, 22px) !important;
+    line-height: 1.15 !important;
+    border-radius: 9px !important;
+  }
+
+  .projects .card-right {
+    min-height: 0 !important;
+    flex: none !important;
+    display: grid !important;
+    grid-template-rows: auto auto auto;
+    align-content: start;
+    gap: 12px !important;
+    padding: 18px 20px 22px !important;
+    overflow: hidden !important;
+  }
+
+  .projects .card-right h2 {
+    font-size: clamp(22px, 5.8vw, 31px) !important;
+    line-height: 1.22 !important;
+    margin: 0 !important;
+  }
+
+  .projects .card-right p {
+    font-size: clamp(14px, 3.75vw, 16px) !important;
+    line-height: 1.42 !important;
+    text-align: left !important;
+    margin: 0 !important;
+  }
+
+  .projects .card-points {
+    padding: 0 !important;
+    margin: 2px 0 0 !important;
+    overflow: visible !important;
+  }
+
+  .projects .card-points li {
+    font-size: clamp(14px, 3.75vw, 16px) !important;
+    line-height: 1.35 !important;
+    margin: 7px 0 !important;
+  }
+
+  .navigation-dots {
+    position: relative !important;
+    margin-top: 18px !important;
+    padding-bottom: 22px !important;
+    z-index: 30 !important;
+  }
+
+  .navigation-dots .dot,
+  .dot {
+    margin-top: 0 !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .projects {
+    height: clamp(755px, 192vw, 825px) !important;
+  }
+
+  .projects .card {
+    width: min(88vw, 380px) !important;
+  }
+
+  .projects .card-left {
+    padding: 14px 14px 12px !important;
+    gap: 12px !important;
+  }
+
+  .projects .card-right {
+    padding: 17px 18px 21px !important;
+    gap: 10px !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .projects {
+    height: 785px !important;
+  }
+
+  .projects .card-right h2 {
+    font-size: 23px !important;
+  }
+
+  .projects .card-right p,
+  .projects .card-points li {
+    font-size: 14.2px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .projects {
+    height: 800px !important;
+  }
+
+  .projects .card-right h2 {
+    font-size: 21px !important;
+  }
+
+  .projects .card-right p,
+  .projects .card-points li {
+    font-size: 13.2px !important;
+  }
+}
