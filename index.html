@@ -110,7 +110,7 @@
     <nav class="navbar">
         <div class="max-width">
             <div class="logo">
-                <a href="#">Bipin<span> Chowdary</span></a>
+                <a href="#home">Bipin<span> Chowdary</span></a>
             </div>
             
             <ul class="menu">
@@ -121,16 +121,16 @@
                 <li><a href="#projects" class="menu-btn">Projects</a></li>
                 <li><a href="#contact" class="menu-btn">Contact</a></li>
             </ul>
+
+            <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
             
-            <!-- Theme Selector similar to reference layout -->
-            <!-- HTML for the theme selector -->
             <div class="theme-selector">
-                <button class="theme-toggle-btn">
+                <button class="theme-toggle-btn" type="button" aria-label="Open theme selector">
                     <i class="fas fa-jedi theme-icon"></i><span class="theme-text">Theme</span>
                 </button>
                 <div class="theme-dropdown" style="display: none;">
-            
-                    <!-- Default Theme -->
                     <div class="theme-option default-theme" data-theme="prime">
                         <span class="theme-name">Prime</span>
                         <div class="theme-colors">
@@ -140,7 +140,6 @@
                         </div>
                     </div>
 
-                    <!-- IRONMAN Theme -->
                     <div class="theme-option iron-theme" data-theme="iron">
                         <span class="theme-name">IRONMAN</span>
                         <div class="theme-colors">
@@ -150,7 +149,6 @@
                         </div>
                     </div>
 
-                    <!-- ZEUCIFER Theme -->
                     <div class="theme-option zeus-theme" data-theme="zeus">
                         <span class="theme-name">ZEUCIFER</span>
                         <div class="theme-colors">
@@ -160,7 +158,6 @@
                         </div>
                     </div>
 
-                    <!-- Miami Theme -->
                     <div class="theme-option miami-theme" data-theme="miami">
                         <span class="theme-name">Miami</span>
                         <div class="theme-colors">
@@ -170,7 +167,6 @@
                         </div>
                     </div>
 
-                    <!-- Black Ops Theme -->
                     <div class="theme-option black-theme" data-theme="black">
                         <span class="theme-name">Black Ops</span>
                         <div class="theme-colors">
@@ -180,7 +176,6 @@
                         </div>
                     </div>
 
-                    <!-- HyperSport Theme -->
                     <div class="theme-option hyper-theme" data-theme="hyper">
                         <span class="theme-name">HyperSport</span>
                         <div class="theme-colors">
@@ -190,17 +185,15 @@
                         </div>
                     </div>
 
-                    <!-- MechaCore Theme -->
                     <div class="theme-option macha-theme" data-theme="mecha">
                         <span class="theme-name">Royal</span>
                         <div class="theme-colors">
                             <div class="color-box" style="background-color: #e4aa4e;"></div>
-                            <div class="color-box" style="background-color: #12c983; "></div>
+                            <div class="color-box" style="background-color: #12c983;"></div>
                             <div class="color-box" style="background-color: #D4AF37;"></div>
                         </div>
                     </div>
 
-                    <!-- Galactic Theme -->
                     <div class="theme-option galactic-theme" data-theme="galactic">
                         <span class="theme-name">Galactic</span>
                         <div class="theme-colors">
@@ -210,7 +203,6 @@
                         </div>
                     </div>
 
-                    <!-- Cyberpunk Theme -->
                     <div class="theme-option cyber-theme" data-theme="cyber">
                         <span class="theme-name">Cyberpunk</span>
                         <div class="theme-colors">
@@ -219,11 +211,8 @@
                             <div class="color-box" style="background-color: #ff007f;"></div>
                         </div>
                     </div>
-
-
-            
                 </div>
-          
+            </div>
         </div>
     </nav>
     
@@ -299,6 +288,7 @@
                 
             </div>
         </div>
+    </div>
     </section>
 
     <!-- skills section start -->
@@ -347,11 +337,13 @@
                             <span>80%</span>
                         </div>
                         <div class="line mysql"></div>
-                    </div class="read-cv-container">
+                    </div>
+                    <div class="read-cv-container">
                     <!-- Read CV link directly under the right column -->
                     <a href="images/Optimised CV.pdf" target="_blank" class="read-cv">Optimised CV</a>
                     <a href="images/Detailed CV.pdf" target="_blank" class="read-cv">Detailed CV</a>
                     <a href="images/Creative CV.pdf" target="_blank" class="read-cv2">Creative CV</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -562,8 +554,9 @@
               </a>
             </div>
             <div class="footer-text">
-                Created By <a href="https://www.linkedin.com/in/bipin-chowdary8055/" target="_blank">Bipin Chowdary</a>  
-                All rights reserved till <span class="bow" id="hidden-icon">⋈</span>
+                <span class="footer-prefix">Created By</span>
+                <a href="https://www.linkedin.com/in/bipin-chowdary8055/" target="_blank">Bipin Chowdary</a>
+                <span class="footer-rights">All rights reserved till <span class="bow" id="hidden-icon">⋈</span></span>
               </div>
               
           </div>
@@ -571,7 +564,7 @@
       </div>
     </div>
   </section>
-  <main>
+  </main>
     <script src="script.js"></script>
 </body>
 </html>
