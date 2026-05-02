@@ -32,15 +32,51 @@ $(document).ready(function() {
         $('html').css("scrollBehavior", "auto");
     });
 
-    // Smooth scroll for menu items click
-    $('.navbar .menu li a').click(function() {
-        $('html').css("scrollBehavior", "smooth");
+    // Store the actual navbar height in CSS so scroll targets do not use brittle fixed offsets.
+    function updateNavHeightVariable() {
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
+            document.documentElement.style.setProperty('--site-nav-height', `${navbar.offsetHeight}px`);
+        }
+    }
+
+    updateNavHeightVariable();
+    $(window).on('resize load scroll', updateNavHeightVariable);
+
+    // Smooth section scrolling with dynamic navbar height.
+    $('.navbar .menu li a, .home .home-content a').click(function(event) {
+        const href = $(this).attr('href');
+        if (!href || !href.startsWith('#')) return;
+
+        const target = document.querySelector(href);
+        if (!target) return;
+
+        event.preventDefault();
+        $('html').css("scrollBehavior", "auto");
+
+        const navbar = document.querySelector('.navbar');
+        const navHeight = navbar ? navbar.offsetHeight : 0;
+        const breathingRoom = window.innerWidth <= 947 ? 12 : 10;
+        const targetY = href === '#home'
+            ? 0
+            : target.getBoundingClientRect().top + window.pageYOffset - navHeight - breathingRoom;
+
+        window.scrollTo({
+            top: Math.max(0, targetY),
+            behavior: 'smooth'
+        });
+
+        $('.navbar .menu').removeClass("active");
+        $('.nav-toggle').attr('aria-expanded', 'false');
+        $('.nav-toggle i').addClass('fa-bars').removeClass('fa-xmark');
     });
 
-    // Toggle menu/navbar script
-    $('.menu-btn').click(function() {
-        $('.navbar .menu').toggleClass("active");
-        $('.menu-btn i').toggleClass("active");
+    // Mobile menu toggle. Desktop nav links stay normal clickable anchors.
+    $('.nav-toggle').click(function(event) {
+        event.stopPropagation();
+        const isOpen = $('.navbar .menu').toggleClass("active").hasClass("active");
+        $(this).attr('aria-expanded', isOpen ? 'true' : 'false');
+        $(this).find('i').toggleClass('fa-bars', !isOpen).toggleClass('fa-xmark', isOpen);
     });
 
     // Typing text animation
@@ -104,7 +140,9 @@ $(document).ready(function() {
     function setTheme(theme) {
         document.documentElement.className = `theme-${theme}`;
         localStorage.setItem('selectedTheme', theme);
-        render(); // Update particle colors dynamically
+        if (typeof render === 'function') {
+            render(); // Update particle colors dynamically
+        }
     }
 
     const savedTheme = localStorage.getItem('selectedTheme');
@@ -130,6 +168,11 @@ $(document).ready(function() {
     $(document).click(function(event) {
         if (!$(event.target).closest('.theme-selector').length) {
             $('.theme-dropdown').hide();
+        }
+        if (!$(event.target).closest('.navbar .menu, .nav-toggle').length) {
+            $('.navbar .menu').removeClass("active");
+            $('.nav-toggle').attr('aria-expanded', 'false');
+            $('.nav-toggle i').addClass('fa-bars').removeClass('fa-xmark');
         }
     });
 
@@ -222,9 +265,33 @@ class Carousel {
 
     calculatePositions(index) {
         const position = ((index - this.currentIndex + this.totalCards) % this.totalCards + this.totalCards) % this.totalCards;
+        const isMobile = window.matchMedia('(max-width: 947px)').matches;
         let transform = '';
         let opacity = 1;
         let zIndex = 1;
+
+        if (isMobile) {
+            if (position === 0) {
+                transform = 'translateX(0) scale(1)';
+                opacity = 1;
+                zIndex = 4;
+            } else if (position === 1) {
+                transform = 'translateX(112%) scale(0.88)';
+                opacity = 0;
+                zIndex = 2;
+            } else if (position === this.totalCards - 1) {
+                transform = 'translateX(-112%) scale(0.88)';
+                opacity = 0;
+                zIndex = 2;
+            } else {
+                const direction = position <= this.totalCards / 2 ? 1 : -1;
+                transform = `translateX(${direction * 140}%) scale(0.82)`;
+                opacity = 0;
+                zIndex = 1;
+            }
+
+            return { transform, opacity, zIndex };
+        }
 
         if (position === 0) {
             transform = 'translateX(0) scale(1)';
@@ -262,7 +329,7 @@ class Carousel {
             const exploreBtn = card.querySelector('.explore-btn');
             
             card.addEventListener('click', (e) => {
-                if (e.target === exploreBtn) {
+                if (e.target.closest('.explore-btn')) {
                     e.stopPropagation();
                     console.log('Explore clicked for project:', index + 1);
                     return;
@@ -352,7 +419,37 @@ class Carousel {
 document.addEventListener('DOMContentLoaded', () => {
     const projectsContainer = document.querySelector('.projects');
     const navigationDots = document.querySelector('.navigation-dots');
-    new Carousel(projectsContainer, navigationDots);
+
+    if (projectsContainer && navigationDots) {
+        const projectCarousel = new Carousel(projectsContainer, navigationDots);
+        window.addEventListener('resize', () => {
+            requestAnimationFrame(() => projectCarousel.updateCards());
+        });
+    }
+
+    const navLinks = Array.from(document.querySelectorAll('.navbar .menu li a'));
+    const sections = navLinks
+        .map(link => document.querySelector(link.getAttribute('href')))
+        .filter(Boolean);
+
+    const setActiveLink = () => {
+        let currentId = sections[0]?.id || 'home';
+        const offset = window.innerHeight * 0.35;
+
+        sections.forEach(section => {
+            if (section.getBoundingClientRect().top <= offset) {
+                currentId = section.id;
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.toggle('active-link', link.getAttribute('href') === `#${currentId}`);
+        });
+    };
+
+    window.addEventListener('scroll', setActiveLink, { passive: true });
+    window.addEventListener('resize', setActiveLink);
+    setActiveLink();
 });
 
 const containerEl = document.querySelector(".container");
@@ -457,7 +554,9 @@ function render() {
 
     gl.uniform1f(uniforms.u_time, currentTime);
     gl.uniform2f(uniforms.u_pointer_position, pointer.x / window.innerWidth, 1 - pointer.y / window.innerHeight);
-    gl.uniform1f(uniforms.u_scroll_progress, window["pageYOffset"] / (2 * window.innerHeight));
+    if (uniforms.u_scroll_progress) {
+        gl.uniform1f(uniforms.u_scroll_progress, window["pageYOffset"] / (2 * window.innerHeight));
+    }
 
     // Get the colors based on the current theme from CSS variables
     const root = document.documentElement;
