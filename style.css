@@ -846,6 +846,7 @@ body {
   margin-right: 0;
 }
 .home .home-content .text-1 {
+  margin-top: 50px;
   font-size: 27px;
 }
 .home .home-content .text-2 {
@@ -971,7 +972,7 @@ html {
   align-items: center;
   padding: 10px; /* 10px gap on all sides */
   box-sizing: border-box;
-  padding-top: 78px;
+  padding-top: 67px;
   margin-top: -50px;
 }
 
@@ -1139,7 +1140,8 @@ h3 {
 }
 
 .about .about-content .right .text {
-  font-size: 25px;
+  font-size: 50px;
+  font-family: "CustomFont", sans-serif;
   font-weight: 600;
   margin-bottom: 10px;
 }
@@ -1274,7 +1276,15 @@ h3 {
   padding-left: 0px;
   padding-right: 0px;
 }
+/* Adds breathing space between navbar and Creative Zones section */
+.Hobbies-container {
+  padding-top: calc(var(--site-nav-height, 90px) + 55px) !important;
+  padding-bottom: calc(var(--site-nav-height, 90px) + 55px) !important;
+}
 
+.Hobbies .title {
+  margin-top: 25px !important;
+}
 /* Title styling */
 .Hobbies .title::before, .Favourites .title::before {
   background: var(--text-alt);
@@ -1289,7 +1299,7 @@ h3 {
 }
 
 h2.title::before {
-  content: none; /* Remove the ::before pseudo-element */
+  content: none;
 }
 
 h3 {
@@ -1387,7 +1397,7 @@ h3 {
   align-items: center;
   padding: 10px; /* 10px gap on all sides */
   box-sizing: border-box;
-  padding-top: 78px;
+  padding-top: 66px;
   margin-top: -80px;
 }
 
@@ -1443,7 +1453,7 @@ h3 {
 }
 .skills .title {
   text-align: center;
-  margin-top: 10px;
+  margin-top: -20px;
 }
 
 h2.title::before {
@@ -1464,11 +1474,12 @@ h3 {
 }
 
 .skills .skills-content .column {
-  width: calc(50% - 10px);
+  width: calc(50% - 20px);
+  margin-top: 30px;
 }
 
 .skills .skills-content .left .text {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 600;
   padding: 0px;
   margin-bottom: 10px;
@@ -1746,7 +1757,13 @@ h3 {
   align-items: center;
   gap: 2rem;
 }
+.projects-container {
+  padding-top: calc(var(--site-nav-height, 80px) + 55px) !important;
+}
 
+.projects .title {
+  margin-top: 25px !important;
+}
 .projects {
   display: flex;
   justify-content: center;
@@ -1763,11 +1780,11 @@ h3 {
   background: var(--glass);
   border: 3px solid rgba(255, 255, 255, 0.625);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  margin-top: 60px;
+  margin-top: 40px;
   cursor: pointer;
   overflow: hidden;
   width: 90%;
-  height: 120%;
+  height: 110%;
   transform-origin: center center;
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -2029,6 +2046,7 @@ h3 {
   padding: 10px; /* 10px gap on all sides */
   box-sizing: border-box;
   padding-top: 80px;
+  padding-bottom: 14px;
   margin-top: -80px;
 }
 
@@ -3342,7 +3360,7 @@ h3 {
 
 /* Keep the rocket consistently inside the visible page frame. */
 .scroll-up-btn {
-  right: clamp(18px, 2vw, 30px);
+  right: clamp(0px, 2vw, 30px);
   bottom: clamp(18px, 2vw, 30px);
 }
 
@@ -3883,7 +3901,7 @@ h3 {
 
   .projects .card-left {
     padding: 14px 14px 12px !important;
-    gap: 12px !important;
+    gap: 30px !important;
   }
 
   .projects .card-right {
@@ -3919,5 +3937,281 @@ h3 {
   .projects .card-right p,
   .projects .card-points li {
     font-size: 13.2px !important;
+  }
+}
+
+
+/* =========================================================
+   TARGETED VISUAL PATCH FROM LATEST MARKED SCREENSHOTS
+   - Adds hero intro line + two clean CTAs
+   - Turns the about photo into a profile card with 3 lower tags
+   - Replaces subtitle bars with primary-color faded bars
+   - Adds large hobbies headline text
+   - Spreads contact social buttons on mobile to use the full box
+   ========================================================= */
+
+/* Primary-color fade bars for every section subtitle */
+.about .sub,
+.skills .sub,
+.contact .sub,
+.projects-container .sub,
+.Hobbies .sub,
+.Favourites .sub {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: clamp(10px, 2.2vw, 18px) !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+}
+
+.about .sub::before,
+.skills .sub::before,
+.contact .sub::before,
+.projects-container .sub::before,
+.Hobbies .sub::before,
+.Favourites .sub::before,
+.about .sub::after,
+.skills .sub::after,
+.contact .sub::after,
+.projects-container .sub::after,
+.Hobbies .sub::after,
+.Favourites .sub::after {
+  content: "" !important;
+  position: static !important;
+  display: block !important;
+  flex: 0 1 clamp(56px, 9vw, 150px) !important;
+  width: clamp(56px, 9vw, 150px) !important;
+  min-width: clamp(40px, 6vw, 76px) !important;
+  height: 4px !important;
+  max-height: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  opacity: 0.95 !important;
+  box-shadow: 0 0 14px color-mix(in srgb, var(--primary-color) 60%, transparent) !important;
+}
+
+.about .sub::before,
+.skills .sub::before,
+.contact .sub::before,
+.projects-container .sub::before,
+.Hobbies .sub::before,
+.Favourites .sub::before {
+  background: linear-gradient(90deg, transparent 0%, var(--primary-color) 95%, var(--primary-color) 100%) !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.about .sub::after,
+.skills .sub::after,
+.contact .sub::after,
+.projects-container .sub::after,
+.Hobbies .sub::after,
+.Favourites .sub::after {
+  background: linear-gradient(90deg, var(--primary-color) 0%, var(--primary-color) 25%, transparent 100%) !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+/* Home: add the requested supporting statement and a two-button action box. */
+.home .home-tagline {
+  max-width: 620px;
+  margin: 16px 0 0;
+  color: var(--text-alt);
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(17px, 1.55vw, 24px);
+  line-height: 1.45;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 12px var(--shadow, rgba(0, 0, 0, 0.45));
+}
+
+
+.home .home-content .home-actions a.home-cta {
+  margin-top: 25px;
+  margin-right: 20px;
+  min-width: 145px;
+  text-align: center;
+  font-size: clamp(17px, 1.3vw, 21px);
+  padding: 11px 18px;
+  border-radius: 10px;
+  line-height: 1.15;
+}
+
+.home .home-content .home-actions a.home-cta-primary {
+  color: var(--text-alt);
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+}
+.home .home-content .home-actions a.home-cta-primary:hover {
+  color: var(--primary-color);
+  background: var(--text-alt);
+  border-color: var(--text-alt);
+}
+
+.home .home-content .home-actions a.home-cta-ghost {
+  color: var(--primary-color);
+  background: color-mix(in srgb, var(--glass) 35%, transparent);
+  border-color: var(--primary-color);
+}
+
+.home .home-content .home-actions a.home-cta-ghost:hover {
+  color: var(--primary-color);
+  background: var(--text-alt);
+  border-color: var(--text-alt);
+}
+
+/* About: profile card requested in the screenshot. */
+.about .about-content .left {
+  align-self: center;
+}
+
+.about-profile-card {
+  width: min(100%, 440px);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 16px;
+  border-radius: 30px;
+  border: 3px solid rgba(255, 255, 255, 0.763);
+  background: color-mix(in srgb, var(--glass) 52%, rgba(0, 0, 0, 0.08));
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  overflow: hidden;
+}
+
+.about .about-content .left .about-profile-card > img {
+  width: 100% !important;
+  max-width: none !important;
+  aspect-ratio: 1 / 1;
+  height: auto !important;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 24px;
+  border: 3px solid rgba(255, 255, 255, 0.58);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
+}
+
+.about-profile-tags {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.about-profile-tags span {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3px 5px;
+  color: var(--primary-color);
+  background: color-mix(in srgb, var(--glass) 38%, transparent);
+  border: 3px solid var(--primary-color);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
+  border-radius: 999px;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(10px, 1vw, 12px);
+  font-weight: 800;
+  line-height: 1.15;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.169);
+}
+
+/* Hobbies: add the requested big line above the cards. */
+.Hobbies .hobbies-statement {
+  width: min(100%, 1180px);
+  margin: 8px auto 36px;
+  color: var(--text-alt);
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(32px, 7vw, 56px);
+  line-height: 0.98;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: -0.055em;
+  text-shadow: 0 8px 26px rgba(0, 0, 0, 0.28);
+}
+
+/* Contact mobile: use the full social panel width with spread-out button boxes. */
+@media (max-width: 947px) {
+  .contact .contact-content .column.right,
+  .contact .contact-content .right {
+    width: 100% !important;
+  }
+
+  .contact .column.right .icons-row {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: clamp(14px, 4vw, 22px) !important;
+    justify-items: stretch !important;
+    align-items: stretch !important;
+  }
+
+  .contact .column.right .icons-row a,
+  .contact .column.right .icons-row a:not(.glassIco) {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: clamp(78px, 19vw, 108px) !important;
+    margin: 0 !important;
+    border-radius: 20px !important;
+  }
+
+  .contact .column.right .icons-row a i {
+    font-size: clamp(42px, 12vw, 58px) !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-profile-card {
+    width: min(100%, 390px);
+    padding: 13px;
+    border-radius: 26px;
+  }
+
+  .about-profile-tags {
+    gap: 8px;
+  }
+
+  .about-profile-tags span {
+    min-height: 42px;
+    padding: 7px 6px;
+    font-size: clamp(10px, 2.75vw, 12px);
+  }
+
+  .Hobbies .hobbies-statement {
+    margin: 0 auto 24px;
+    font-size: clamp(36px, 12vw, 54px);
+    line-height: 1.02;
+  }
+
+  .home .home-tagline,
+  .home .home-actions {
+    display: none;
+  }
+
+  .about .sub::before,
+  .skills .sub::before,
+  .contact .sub::before,
+  .projects-container .sub::before,
+  .Hobbies .sub::before,
+  .Favourites .sub::before,
+  .about .sub::after,
+  .skills .sub::after,
+  .contact .sub::after,
+  .projects-container .sub::after,
+  .Hobbies .sub::after,
+  .Favourites .sub::after {
+    flex-basis: clamp(34px, 14vw, 58px) !important;
+    width: clamp(34px, 14vw, 58px) !important;
+    min-width: clamp(30px, 10vw, 42px) !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .about-profile-tags {
+    grid-template-columns: 1fr;
   }
 }
