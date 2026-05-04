@@ -88,7 +88,7 @@ $(document).ready(function() {
     });
 
     var typed2 = new Typed(".typing-2", {
-        strings: ["AI Developer", "Robotics Engineer", "Game Modder", "Creative Designer"],
+        strings: ["AI Systems", "Robotic Ideas", "Creative Builds", "Prototypes"],
         typeSpeed: 100,
         backSpeed: 60,
         loop: true
