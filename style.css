@@ -23,7 +23,7 @@ body, .footer-text, .contact-container {
 
 :root {
   --primary-color: #cf0003;  /* Soft Coral */
-  --secondary-color: #ffe100;  /* Warm Orange */
+  --secondary-color: #fccb19;  /* Warm Orange */
   --background: url("images/glow.jpg"); /* Warm gradient */
   --text-color: #000000;  /* Bright Cyan */
   --text-hover: #ffffff;  /* Tomato */
@@ -331,7 +331,7 @@ body {
   --secondary-color: #ff4500;  /* Vivid Orange */
   --background: linear-gradient(45deg, #0f0f3e, #ff4500);  /* Blue to Orange Gradient */
   --text-color: #420000;  /* White */
-  --text-hover: #0f0f3e;  /* Warm Orange Hover */
+  --text-hover: #d7d7e6;  /* Warm Orange Hover */
   --text-alt: #88eee5;  /* Light Turquoise */
   --shine: rgba(255, 255, 255, 0.484);
   --glass: rgba(255, 255, 255, 0.3);  /* Slightly darker glass effect */
@@ -365,8 +365,8 @@ body {
   --secondary-color: #D4AF37; /* Mecha Gold */
   --background: url("images/meg2.jpg");
   --text-color: #D4AF37;  /* Mecha White */
-  --text-hover: #B3B3B3;  /* Metallic Gray (Hover Text) */
-  --text-alt: #12c983;  /* Light Metallic Gray (Alternate Text) */
+  --text-hover: #0b6006;  /* Metallic Gray (Hover Text) */
+  --text-alt: #0f7950;  /* Light Metallic Gray (Alternate Text) */
   --shine: rgba(212, 175, 55, 0.5);  /* Mecha Gold Shine */
   --glass: rgba(0, 222, 41, 0.071); /* Mecha Black for Glass Effect */
   --hover: #00000090;  /* Bright Red (Hover for Cards) */
@@ -382,7 +382,7 @@ body {
   --secondary-color: #00d9ff;  /* Cyan */
   --background: linear-gradient(45deg, #1e1e1e, #1f1f1f);   /* Cyberpunk City Background */
   --text-color: #ff007f;  /* Neon Pink */
-  --text-hover: #00d9ff;  /* Hover with Neon Cyan */
+  --text-hover: #eaa11a;  /* Hover with Neon Cyan */
   --text-alt: #00b894;  /* Aqua */
   --shine: rgba(255, 255, 255, 0.484);
   --glass: rgba(0, 0, 0, 0.5);  /* Dark Glass Effect */
@@ -1350,8 +1350,9 @@ h3 {
 .Hobbies .serv-content .card i, .Favourites .serv-content .card i {
   font-size: 90px;
   color: var(--primary-color);
-  text-shadow: 0.4px 0.4px 0px currentColor, -0.4px 0.4px 0px currentColor, 
-                     0.4px -0.4px 0px currentColor, -0.4px -0.4px 0px currentColor;
+  text-shadow: 0.3px 0.3px 0px currentColor, -0.3px 0.3px 0px currentColor, 
+                     0.3px -0.3px 0px currentColor, -0.3px -0.3px 0px currentColor;
+  filter: drop-shadow(0 1px 2px var(--text-color)); /* Apply glow effect */
   transition: color 0.3s ease;
 }
 
@@ -1398,7 +1399,8 @@ h3 {
   padding: 10px; /* 10px gap on all sides */
   box-sizing: border-box;
   padding-top: 66px;
-  margin-top: -80px;
+  padding-bottom: 30px !important;
+  margin-top: -40px;
 }
 
 .skills {
@@ -1408,7 +1410,7 @@ h3 {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  padding-top: 40px; /* Inner spacing for content */
+  padding-top: 0px; /* Inner spacing for content */
   width: calc(100% - 40px); /* Full width with padding subtracted */
   height: calc(100% - 40px); /* Full height with padding subtracted */
   box-sizing: border-box;
@@ -1416,7 +1418,7 @@ h3 {
   border: 3px solid rgba(255, 255, 255, 0.564); /* Border for glass effect */
   transition: all 0.3s ease; /* Smooth transitions */
   overflow: hidden; /* Ensure no overflow */
-  padding-bottom: 80px;
+  padding-bottom: 10px;
   scroll-margin-top: 80px; /* Adjust the scroll position to account for the menu */
 }
 
@@ -1474,8 +1476,8 @@ h3 {
 }
 
 .skills .skills-content .column {
-  width: calc(50% - 20px);
-  margin-top: 30px;
+  width: calc(44% - 90px);
+  margin-top: 10px;
 }
 
 .skills .skills-content .left .text {
@@ -1696,19 +1698,19 @@ h3 {
 }
 
 .skills-content .right .html::before {
-  width: 69%;
+  width: 78%;
 }
 
 .skills-content .right .css::before {
-  width: 80%;
+  width: 82%;
 }
 
 .skills-content .right .js::before {
-  width: 70%;
+  width: 76%;
 }
 
 .skills-content .right .php::before {
-  width: 75%;
+  width: 74%;
 }
 
 .skills-content .right .mysql::before {
@@ -3337,14 +3339,6 @@ h3 {
   }
 }
 
-/* =========================================================
-   FINAL PRECISION PATCH FROM SCREENSHOT NOTES
-   - Keeps original desktop home composition unchanged
-   - Fixes nav-click alignment using dynamic navbar height
-   - Prevents mobile project/hobby card overlap
-   - Restores subtitle side bars inside the section frame
-   - Aligns desktop CV buttons and wraps contact footer cleanly
-   ========================================================= */
 
 :root {
   --site-nav-height: 82px;
@@ -3744,14 +3738,6 @@ h3 {
   }
 }
 
-/* =========================================================
-   FINAL PROJECT CARD 16:9 STABILITY PATCH
-   - Keeps the original desktop composition intact
-   - Makes every project image area a true 16:9 image border
-   - Removes the extra boxed look around the mobile image area
-   - Locks mobile project card structure so slides do not jump
-   - Keeps navigation dots below the card, never overlapped
-   ========================================================= */
 
 .projects .card-left img {
   display: block;
@@ -4213,5 +4199,2348 @@ h3 {
 @media (max-width: 380px) {
   .about-profile-tags {
     grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================================
+   ABOUT PAGE REDESIGN PATCH
+   - Only redesigns the inner content of the About section
+   - Keeps the outer container, layout language, and rest of site unchanged
+   ========================================================= */
+
+.about-content-redesign {
+  align-items: flex-start;
+}
+
+.about-profile-card-redesign {
+  gap: 22px;
+}
+
+.about-profile-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.about-profile-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 3px solid var(--primary-color);
+  background: color-mix(in srgb, var(--glass) 42%, rgba(255,255,255,0.1));
+  color: var(--primary-color);
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-profile-actions a:hover {
+  color: var(--text-alt);
+  background: var(--primary-color);
+  box-shadow: 0 0 24px var(--primary-color), 0 0 42px color-mix(in srgb, var(--primary-color) 55%, transparent);
+}
+
+.about-profile-actions a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-120%);
+  background: linear-gradient(90deg, transparent, var(--shine), transparent);
+  transition: transform 0.5s ease;
+  pointer-events: none;
+}
+
+.about-profile-actions a:hover::before {
+  transform: translateX(120%);
+}
+
+.about .about-content .right .about-intro {
+  margin-bottom: 4px;
+}
+
+.about .about-content .right .about-typing {
+  font-size: clamp(24px, 2.25vw, 32px);
+  margin-bottom: 22px;
+}
+
+.about-journey-network {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 22px;
+  padding: 12px 0 0;
+}
+
+.about-track-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.about-track-card,
+.about-rd-card {
+  min-height: 205px;
+  padding: 18px 18px 20px;
+  border-radius: 24px;
+  border: 3px solid rgba(255, 255, 255, 0.55);
+  background: color-mix(in srgb, var(--glass) 60%, rgba(255, 255, 255, 0.05));
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-track-card::before,
+.about-rd-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.06) 32%, transparent 68%);
+  transform: translateX(-110%);
+  transition: transform 0.7s ease;
+  pointer-events: none;
+}
+
+.about-track-card:hover::before,
+.about-rd-card:hover::before {
+  transform: translateX(110%);
+}
+
+.track-topline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 2px solid color-mix(in srgb, var(--primary-color) 55%, white);
+  color: var(--primary-color);
+  background: color-mix(in srgb, var(--glass) 35%, transparent);
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.track-topline i {
+  font-size: 15px;
+}
+
+.about-track-card h4,
+.about-rd-card h4 {
+  color: var(--text-alt);
+  font-size: clamp(18px, 1.3vw, 22px);
+  line-height: 1.2;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.about-track-card p,
+.about-rd-card p,
+.about-summary {
+  color: var(--text-alt);
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(14px, 1vw, 15px);
+  line-height: 1.65;
+  text-align: left;
+}
+
+.about-rd-card {
+  min-height: 0;
+  z-index: 2;
+}
+
+.about-rd-card h4 {
+  margin-bottom: 8px;
+}
+
+.about-summary {
+  margin-top: 2px;
+  text-align: justify;
+}
+
+@media (max-width: 1350px) {
+  .about-track-card,
+  .about-rd-card {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 947px) {
+  .about-content-redesign {
+    gap: 26px;
+  }
+
+  .about-profile-card-redesign {
+    gap: 18px;
+  }
+
+  .about-profile-actions {
+    width: 100%;
+  }
+
+  .about-track-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-track-card,
+  .about-rd-card {
+    min-height: 0;
+  }
+
+  .about-summary {
+    text-align: left;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-profile-actions {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .about-profile-actions a {
+    min-height: 46px;
+    font-size: 11px;
+    padding: 8px 10px;
+  }
+
+  .about .about-content .right .about-typing {
+    font-size: clamp(20px, 5.6vw, 28px);
+    margin-bottom: 18px;
+  }
+
+  .about-track-card,
+  .about-rd-card {
+    border-radius: 22px;
+  }
+}
+
+
+.about-container {
+  min-height: 100vh !important;
+  height: auto !important;
+  margin-top: 0 !important;
+  padding: calc(var(--site-nav-height, 82px) + 14px) 10px 28px !important;
+  align-items: center !important;
+  overflow: visible !important;
+}
+
+.about {
+  height: auto !important;
+  min-height: min(780px, calc(100vh - var(--site-nav-height, 82px) - 42px)) !important;
+  width: calc(100% - 40px) !important;
+  max-width: 1540px;
+  padding: clamp(22px, 2.2vw, 34px) clamp(18px, 2.7vw, 42px) !important;
+  padding-bottom: clamp(22px, 2.2vw, 34px) !important;
+  overflow: visible !important;
+}
+
+.about > .max-width {
+  width: 100%;
+  max-width: 1500px;
+  padding-left: clamp(18px, 3.2vw, 62px) !important;
+  padding-right: clamp(18px, 3.2vw, 62px) !important;
+}
+
+.about > .max-width > .title,
+.about > .max-width > .sub {
+  display: none !important;
+}
+
+.about .about-content.about-content-v2 {
+  margin-top: 0 !important;
+  height: auto !important;
+  display: grid !important;
+  grid-template-columns: minmax(300px, 0.78fr) minmax(650px, 2fr);
+  gap: clamp(34px, 4.3vw, 72px) !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-wrap: nowrap !important;
+  overflow: visible !important;
+}
+
+.about .about-content.about-content-v2 .column.left {
+  width: auto !important;
+  min-width: 0;
+  flex: none !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+.about .about-content.about-content-v2 .column.left::before {
+  display: none !important;
+}
+
+.about-profile-card-redesign {
+  width: min(100%, 390px) !important;
+  gap: 18px !important;
+  padding: clamp(12px, 1.15vw, 16px) !important;
+  margin-left: clamp(-22px, -1.2vw, -6px);
+  border-radius: 30px;
+}
+
+.about .about-content .left .about-profile-card-redesign > img {
+  aspect-ratio: 1 / 1 !important;
+  width: 100% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+.about-profile-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(10px, 1vw, 14px);
+  margin-top: 2px;
+}
+
+.about-profile-actions a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 14px;
+  border-radius: 999px;
+  border: 3px solid var(--primary-color);
+  background: color-mix(in srgb, var(--glass) 42%, rgba(255,255,255,0.1));
+  color: var(--primary-color);
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(12px, 0.92vw, 15px);
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-profile-actions a:hover {
+  color: var(--text-alt);
+  background: var(--primary-color);
+  box-shadow: 0 0 22px var(--primary-color), 0 0 38px color-mix(in srgb, var(--primary-color) 50%, transparent);
+}
+
+.about-profile-actions a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-120%);
+  background: linear-gradient(90deg, transparent, var(--shine), transparent);
+  transition: transform 0.5s ease;
+  pointer-events: none;
+}
+
+.about-profile-actions a:hover::before {
+  transform: translateX(120%);
+}
+
+.about .about-content.about-content-v2 .column.right,
+.about-academic-panel {
+  flex: none !important;
+  width: 100% !important;
+  min-width: 0;
+  margin-left: 0 !important;
+}
+
+.about-heading-block {
+  margin-bottom: clamp(14px, 1.3vw, 18px);
+}
+
+.about .about-content .right .about-intro {
+  font-size: clamp(32px, 3vw, 46px) !important;
+  line-height: 0.92 !important;
+  margin: 0 0 6px !important;
+  color: var(--text-color);
+  text-align: left;
+  white-space: normal;
+}
+
+.about .about-content .right .about-typing {
+  font-size: clamp(20px, 1.75vw, 27px) !important;
+  line-height: 1.05 !important;
+  margin: 0 !important;
+  text-align: left;
+  white-space: normal;
+}
+
+.about .about-content .right .about-typing span {
+  color: var(--primary-color);
+}
+
+.about-journey-v2 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 1.7vw, 22px);
+  margin: 0 !important;
+  padding: 0 !important;
+  isolation: isolate;
+}
+
+.about-track-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 1.35vw, 20px);
+  position: relative;
+  z-index: 2;
+  align-items: stretch;
+}
+
+.about-track-card,
+.about-rd-card {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  border: 3px solid rgba(255, 255, 255, 0.62);
+  background: color-mix(in srgb, var(--glass) 82%, rgba(9, 20, 40, 0.16));
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.about-track-card {
+  min-height: clamp(168px, 21vh, 205px);
+  padding: clamp(14px, 1.35vw, 20px);
+  border-radius: 24px;
+}
+
+.about-rd-card {
+  min-height: 96px;
+  padding: clamp(14px, 1.35vw, 20px);
+  border-radius: 24px;
+}
+
+.track-topline {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  gap: 7px;
+  margin-bottom: clamp(9px, 1vw, 12px);
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  background: color-mix(in srgb, var(--primary-color) 16%, transparent);
+  box-shadow: 0 0 13px color-mix(in srgb, var(--primary-color) 60%, transparent), 0 0 22px color-mix(in srgb, var(--primary-color) 55%, transparent);
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(9.5px, 0.74vw, 12px);
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.track-topline i {
+  font-size: clamp(12px, 0.9vw, 15px);
+  color: var(--primary-color);
+}
+
+.about-track-card h4,
+.about-rd-card h4 {
+  color: var(--primary-color);
+  font-size: clamp(18px, 1.35vw, 23px);
+  line-height: 1.08;
+  font-weight: 900;
+  margin: 0 0 clamp(8px, 0.8vw, 10px);
+  overflow-wrap: anywhere;
+}
+
+.about-track-card p,
+.about-rd-card p {
+  color: var(--text-color);
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(12.2px, 0.92vw, 14px) !important;
+  line-height: 1.45 !important;
+  text-align: left !important;
+  margin: 0;
+  font-weight: 500;
+}
+
+.about-rd-card h4 {
+  margin-bottom: 8px;
+}
+
+.about-summary {
+  display: none !important;
+}
+
+/* Desktop compression: makes the section fit cleanly on 1366x768 style screens. */
+@media (max-height: 820px) and (min-width: 948px) {
+  .about-container {
+    padding-top: calc(var(--site-nav-height, 82px) + 8px) !important;
+    padding-bottom: 18px !important;
+  }
+
+  .about {
+    padding-top: 18px !important;
+    padding-bottom: 18px !important;
+  }
+
+  .about .about-content .right .about-intro {
+    font-size: clamp(30px, 2.8vw, 42px) !important;
+  }
+
+  .about .about-content .right .about-typing {
+    font-size: clamp(18px, 1.55vw, 24px) !important;
+  }
+
+  .about-track-card {
+    min-height: 160px;
+    padding: 14px;
+  }
+
+  .about-rd-card {
+    min-height: 88px;
+    padding: 14px;
+  }
+
+  .about-profile-card-redesign {
+    width: min(100%, 360px) !important;
+  }
+
+  .about-track-card p,
+  .about-rd-card p {
+    font-size: 12px !important;
+    line-height: 1.38 !important;
+  }
+}
+
+@media (max-width: 1240px) {
+  .about .about-content.about-content-v2 {
+    grid-template-columns: minmax(270px, 0.72fr) minmax(560px, 1.85fr);
+    gap: clamp(24px, 3vw, 44px) !important;
+  }
+
+  .about-profile-card-redesign {
+    width: min(100%, 350px) !important;
+  }
+
+  .about-track-card h4,
+  .about-rd-card h4 {
+    font-size: clamp(17px, 1.45vw, 21px);
+  }
+}
+
+@media (max-width: 1040px) {
+  .about-container {
+    align-items: flex-start !important;
+  }
+
+  .about {
+    min-height: 0 !important;
+  }
+
+  .about .about-content.about-content-v2 {
+    grid-template-columns: 1fr;
+    gap: 26px !important;
+  }
+
+  .about .about-content.about-content-v2 .column.left {
+    justify-content: center !important;
+  }
+
+  .about-profile-card-redesign {
+    margin-left: 0;
+    width: min(100%, 380px) !important;
+  }
+
+  .about .about-content .right .about-intro,
+  .about .about-content .right .about-typing {
+    text-align: center;
+  }
+}
+
+@media (max-width: 947px) {
+  .about-container {
+    padding-top: calc(var(--site-nav-height, 86px) + 18px) !important;
+  }
+
+  .about {
+    width: calc(100% - 18px) !important;
+    padding: 24px 14px !important;
+  }
+
+  .about > .max-width {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  .about-track-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .about-track-card,
+  .about-rd-card {
+    min-height: 0;
+  }
+
+  }
+
+@media (max-width: 600px) {
+  .about-profile-card-redesign {
+    width: min(100%, 330px) !important;
+    border-radius: 24px;
+  }
+
+  .about-profile-actions {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .about-profile-actions a {
+    min-height: 42px;
+    font-size: 11px;
+    padding: 8px 10px;
+  }
+
+  .about .about-content .right .about-intro {
+    font-size: clamp(27px, 8vw, 36px) !important;
+  }
+
+  .about .about-content .right .about-typing {
+    font-size: clamp(17px, 5.2vw, 24px) !important;
+  }
+
+  .track-topline {
+    font-size: 10px;
+  }
+
+  .about-track-card h4,
+  .about-rd-card h4 {
+    font-size: 19px;
+  }
+
+  .about-track-card p,
+  .about-rd-card p {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+  }
+}
+
+/* =========================================================
+   FINAL ABOUT / BUTTON CLEANUP PATCH
+   - About container now matches the Skills container sizing/effects.
+   - About education/R&D cards now use the same glass theme, shine, and hover language as Hobby cards.
+   - About quick buttons, Skill CV buttons, and Project launch buttons use the Home CTA theme.
+   ========================================================= */
+
+/* About container: copied from the Skills container sizing model. */
+.about-container {
+  scroll-snap-align: center !important;
+  position: relative !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 10px !important;
+  padding-top: 66px !important;
+  margin-top: -80px !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+.about {
+  position: relative !important;
+  color: var(--text-color) !important;
+  background: var(--glass) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  padding: 40px !important;
+  padding-bottom: 70px !important;
+  padding-top: 30px !important;
+  width: calc(100% - 40px) !important;
+  max-width: none !important;
+  margin-top: 60px !important;
+  height: calc(100% - 25px) !important;
+  padding-bottom: 24px !important;
+  min-height: 0 !important;
+  box-sizing: border-box !important;
+  border-radius: 20px !important;
+  border: 3px solid rgba(255, 255, 255, 0.564) !important;
+  transition: all 0.3s ease !important;
+  overflow: hidden !important;
+  scroll-margin-top: 80px !important;
+}
+
+.about:hover {
+  background: var(--glass) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 3px solid rgba(255, 255, 255, 0.5) !important;
+}
+
+.about::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, var(--shine), transparent) !important;
+  transition: transform 0.5s ease !important;
+  pointer-events: none !important;
+}
+
+.about:hover::before {
+  transform: translateX(200%) !important;
+}
+
+.about > .max-width {
+  width: 100% !important;
+  max-width: 1650px !important;
+  padding: 0 70px !important;
+  margin: auto !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.about .about-content.about-content-v2 {
+  height: 100% !important;
+  margin-top: 0 !important;
+  display: grid !important;
+  grid-template-columns: minmax(300px, 0.78fr) minmax(650px, 2fr) !important;
+  gap: clamp(34px, 4.3vw, 72px) !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  overflow: visible !important;
+}
+
+.about-heading-block {
+  margin-bottom: clamp(14px, 1.3vw, 18px) !important;
+}
+
+/* About profile image card keeps the same glass language as the main section. */
+.about-profile-card-redesign {
+  width: min(100%, 390px) !important;
+  gap: 18px !important;
+  padding: clamp(12px, 1.15vw, 16px) !important;
+  margin-left: clamp(-22px, -1.2vw, -6px) !important;
+  border-radius: 30px !important;
+  border: 3px solid rgba(255, 255, 255, 0.5) !important;
+  background: var(--glass) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+/* About education/R&D cards: same color theme and hover effects as the Hobbies cards. */
+.about-track-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: clamp(14px, 1.35vw, 20px) !important;
+  align-items: stretch !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.about-track-card,
+.about-rd-card {
+  position: relative !important;
+  z-index: 2 !important;
+  overflow: hidden !important;
+  cursor: pointer !important;
+  border-radius: 16px !important;
+  border: 3px solid rgba(255, 255, 255, 0.5) !important;
+  background: var(--glass) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+  backdrop-filter: blur(6.2px) !important;
+  -webkit-backdrop-filter: blur(6.2px) !important;
+  transition: all 0.3s ease !important;
+}
+
+.about-track-card {
+  min-height: clamp(168px, 21vh, 205px) !important;
+  padding: clamp(16px, 1.55vw, 24px) !important;
+}
+
+.about-rd-card {
+  min-height: 104px !important;
+  padding: clamp(16px, 1.55vw, 24px) !important;
+  margin-top: clamp(14px, 1.35vw, 20px) !important;
+}
+
+.about-track-card::before,
+.about-rd-card::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, var(--shine), transparent) !important;
+  transition: transform 0.5s ease !important;
+  pointer-events: none !important;
+}
+
+.about-track-card:hover,
+.about-rd-card:hover {
+  background: var(--hover) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 3px solid rgba(255, 255, 255, 0.5) !important;
+  transform: translateY(-4px) scale(1.01) !important;
+}
+
+.about-track-card:hover::before,
+.about-rd-card:hover::before {
+  transform: translateX(200%) !important;
+}
+
+.track-topline {
+  display: inline-flex !important;
+  align-items: center !important;
+  max-width: 100% !important;
+  gap: 8px !important;
+  margin-bottom: clamp(9px, 1vw, 12px) !important;
+  padding: 7px 12px !important;
+  border-radius: 999px !important;
+  border: 2px solid var(--primary-color) !important;
+  color: var(--primary-color) !important;
+  background: color-mix(in srgb, var(--glass) 35%, transparent) !important;
+  box-shadow: none !important;
+  font-family: "Poppins", sans-serif !important;
+  font-size: clamp(9.5px, 0.74vw, 12px) !important;
+  line-height: 1 !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+  transition: all 0.3s ease !important;
+}
+
+.track-topline i {
+  font-size: clamp(13px, 1vw, 16px) !important;
+  color: var(--primary-color) !important;
+  transition: color 0.3s ease !important;
+}
+
+.about-track-card h4,
+.about-rd-card h4 {
+  color: var(--primary-color) !important;
+  font-size: clamp(18px, 1.35vw, 23px) !important;
+  line-height: 1.08 !important;
+  font-weight: 900 !important;
+  margin: 0 0 clamp(8px, 0.8vw, 10px) !important;
+  overflow-wrap: anywhere !important;
+  transition: color 0.3s ease !important;
+}
+
+.about-track-card p,
+.about-rd-card p {
+  color: var(--text-color) !important;
+  font-family: "Poppins", sans-serif !important;
+  font-size: clamp(12.2px, 0.92vw, 14px) !important;
+  line-height: 1.45 !important;
+  text-align: left !important;
+  margin: 0 !important;
+  font-weight: 500 !important;
+  transition: color 0.3s ease !important;
+}
+
+.about-track-card:hover .track-topline,
+.about-rd-card:hover .track-topline,
+.about-track-card:hover .track-topline i,
+.about-rd-card:hover .track-topline i,
+.about-track-card:hover h4,
+.about-rd-card:hover h4,
+.about-track-card:hover p,
+.about-rd-card:hover p {
+  color: var(--text-hover) !important;
+}
+
+.about-track-card:hover .track-topline,
+.about-rd-card:hover .track-topline {
+  border-color: var(--text-hover) !important;
+  background: color-mix(in srgb, var(--glass) 45%, transparent) !important;
+}
+
+/* Home CTA theme reused for About quick buttons, Skill CV buttons, and Project buttons. */
+.about-profile-actions,
+.read-cv-container {
+  display: grid !important;
+  gap: clamp(12px, 1.2vw, 18px) !important;
+}
+
+.about-profile-actions {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  margin-top: 4px !important;
+}
+
+.read-cv-container {
+  width: 100% !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  justify-content: stretch !important;
+  align-items: stretch !important;
+  margin-top: clamp(18px, 1.4vw, 24px) !important;
+}
+
+.about-profile-actions a,
+.read-cv-container .read-cv,
+.read-cv-container .read-cv2,
+.projects .explore-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  min-width: 145px !important;
+  min-height: 44px !important;
+  width: auto !important;
+  padding: 11px 18px !important;
+  border-radius: 10px !important;
+  border: 2px solid var(--primary-color) !important;
+  font-family: "Poppins", sans-serif !important;
+  font-size: clamp(13px, 1.05vw, 18px) !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+  letter-spacing: 0.02em !important;
+  text-transform: none !important;
+  text-shadow: 0px 0px 0px var(--shadow) !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+.about-profile-actions a:first-child,
+.read-cv-container .read-cv,
+.projects .explore-btn {
+  color: var(--text-alt) !important;
+  background: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+.about-profile-actions a:last-child,
+.read-cv-container .read-cv2 {
+  color: var(--primary-color) !important;
+  background: color-mix(in srgb, var(--glass) 35%, transparent) !important;
+  border-color: var(--primary-color) !important;
+}
+
+.about-profile-actions a:hover,
+.read-cv-container .read-cv:hover,
+.read-cv-container .read-cv2:hover,
+.projects .explore-btn:hover {
+  color: var(--primary-color) !important;
+  background: var(--text-alt) !important;
+  border-color: var(--text-alt) !important;
+  box-shadow: 0 0 25px var(--primary-color), 0 0 50px var(--primary-color), 0 0 75px var(--hover) !important;
+}
+
+.about-profile-actions a::before,
+.read-cv-container .read-cv::before,
+.read-cv-container .read-cv2::before,
+.projects .explore-btn::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, var(--shine), transparent) !important;
+  transition: transform 0.5s ease !important;
+  pointer-events: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.about-profile-actions a:hover::before,
+.read-cv-container .read-cv:hover::before,
+.read-cv-container .read-cv2:hover::before,
+.projects .explore-btn:hover::before {
+  transform: translateX(200%) !important;
+}
+
+.read-cv-container .read-cv2::after,
+.read-cv-container .read-cv2:hover::after {
+  display: none !important;
+}
+
+.projects .card-left a {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  margin-top: clamp(14px, 1.4vw, 22px) !important;
+}
+
+.projects .explore-btn {
+  margin-bottom: 0 !important;
+  flex-grow: 0 !important;
+}
+
+/* Responsive safety: desktop matches Skills; smaller screens grow instead of clipping. */
+@media (max-width: 1240px) {
+  .about > .max-width {
+    padding-left: clamp(18px, 3.2vw, 62px) !important;
+    padding-right: clamp(18px, 3.2vw, 62px) !important;
+  }
+
+  .about .about-content.about-content-v2 {
+    grid-template-columns: minmax(270px, 0.72fr) minmax(560px, 1.85fr) !important;
+    gap: clamp(24px, 3vw, 44px) !important;
+  }
+}
+
+@media (max-height: 820px) and (min-width: 948px) {
+  .about {
+    padding: 28px !important;
+    padding-bottom: 42px !important;
+  }
+
+  .about-profile-card-redesign {
+    width: min(100%, 350px) !important;
+  }
+
+  .about-track-card {
+    min-height: 150px !important;
+    padding: 14px !important;
+  }
+
+  .about-rd-card {
+    min-height: 82px !important;
+    padding: 14px !important;
+  }
+
+  .about-track-card p,
+  .about-rd-card p {
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+  }
+}
+
+@media (max-width: 1040px) {
+  .about-container {
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow: visible !important;
+    align-items: center !important;
+  }
+
+  .about {
+    height: auto !important;
+    min-height: calc(100vh - 106px) !important;
+    overflow: visible !important;
+  }
+
+  .about .about-content.about-content-v2 {
+    height: auto !important;
+    grid-template-columns: 1fr !important;
+    gap: 26px !important;
+  }
+
+  .about .about-content.about-content-v2 .column.left {
+    justify-content: center !important;
+  }
+
+  .about-profile-card-redesign {
+    margin-left: 0 !important;
+    width: min(100%, 380px) !important;
+  }
+
+  .about .about-content .right .about-intro,
+  .about .about-content .right .about-typing {
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 947px) {
+  .about-container {
+    padding-top: calc(var(--site-nav-height, 86px) + 18px) !important;
+    margin-top: 0 !important;
+  }
+
+  .about {
+    width: calc(100% - 18px) !important;
+    padding: 24px 14px !important;
+  }
+
+  .about > .max-width {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  .about-track-grid,
+  .read-cv-container {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .about-track-card,
+  .about-rd-card {
+    min-height: 0 !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-profile-card-redesign {
+    width: min(100%, 330px) !important;
+    border-radius: 24px !important;
+  }
+
+  .about-profile-actions {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+
+  .about-profile-actions a,
+  .read-cv-container .read-cv,
+  .read-cv-container .read-cv2,
+  .projects .explore-btn {
+    min-width: 0 !important;
+    width: 100% !important;
+    min-height: 42px !important;
+    font-size: 11px !important;
+    padding: 8px 10px !important;
+  }
+
+  .about .about-content .right .about-intro {
+    font-size: clamp(27px, 8vw, 36px) !important;
+  }
+
+  .about .about-content .right .about-typing {
+    font-size: clamp(17px, 5.2vw, 24px) !important;
+  }
+
+  .track-topline {
+    font-size: 10px !important;
+  }
+
+  .about-track-card h4,
+  .about-rd-card h4 {
+    font-size: 19px !important;
+  }
+
+  .about-track-card p,
+  .about-rd-card p {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+  }
+}
+
+
+/* =========================================================
+   UNIQUE ABOUT CARD HOVER PATCH
+   - Restores the profile image/buttons/text card as the kept version.
+   - Adds individual border animations for EEE, AIML/Robotics, Master's AI, and highlighted R&D.
+   - Keeps all internal section links using the same normal button styling.
+   ========================================================= */
+
+/* Profile stack kept as a real card: image, gap, buttons, then context text. */
+.about-profile-card-redesign {
+  border: 3px solid rgba(255, 255, 255, 0.5) !important;
+  background: var(--glass) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.18) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+.about-profile-buttons,
+.about-profile-actions {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: clamp(12px, 1.2vw, 18px) !important;
+  margin-top: 4px !important;
+}
+
+.about-profile-buttons a,
+.about-profile-actions a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  min-width: 145px !important;
+  min-height: 44px !important;
+  padding: 11px 18px !important;
+  border-radius: 10px !important;
+  border: 2px solid var(--primary-color) !important;
+  font-family: "Poppins", sans-serif !important;
+  font-size: clamp(13px, 1.05vw, 18px) !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+  letter-spacing: 0.02em !important;
+  text-transform: none !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+}
+
+.about-profile-buttons a:first-child,
+.about-profile-actions a:first-child {
+  color: var(--text-alt) !important;
+  background: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+.about-profile-buttons a:last-child,
+.about-profile-actions a:last-child {
+  color: var(--primary-color) !important;
+  background: color-mix(in srgb, var(--glass) 35%, transparent) !important;
+  border-color: var(--primary-color) !important;
+}
+
+.about-profile-buttons a:hover,
+.about-profile-actions a:hover {
+  color: var(--primary-color) !important;
+  background: var(--text-alt) !important;
+  border-color: var(--text-alt) !important;
+  box-shadow: 0 0 25px var(--primary-color), 0 0 50px var(--primary-color), 0 0 75px var(--hover) !important;
+}
+
+.about-profile-buttons a::before,
+.about-profile-actions a::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  transform: translateX(-120%) !important;
+  background: linear-gradient(90deg, transparent, var(--shine), transparent) !important;
+  transition: transform 0.5s ease !important;
+  pointer-events: none !important;
+}
+
+.about-profile-buttons a:hover::before,
+.about-profile-actions a:hover::before {
+  transform: translateX(120%) !important;
+}
+
+.about-profile-note {
+  color: var(--text-color) !important;
+  font-family: "Poppins", sans-serif !important;
+  padding: 2px 4px 4px !important;
+}
+
+.about-profile-note h4 {
+  color: var(--primary-color) !important;
+  font-size: clamp(16px, 1.15vw, 20px) !important;
+  line-height: 1.15 !important;
+  margin-bottom: 7px !important;
+  font-weight: 900 !important;
+}
+
+.about-profile-note p {
+  color: var(--text-color) !important;
+  font-size: clamp(12.5px, 0.95vw, 14px) !important;
+  line-height: 1.5 !important;
+  font-weight: 500 !important;
+  margin: 0 !important;
+}
+
+.about-track-card h4 span,
+.about-rd-card h4 span {
+  display: block !important;
+  font-size: 0.82em !important;
+  line-height: 1.12 !important;
+  margin-top: 3px !important;
+  font-weight: 800 !important;
+}
+
+@media (max-width: 600px) {
+  .about-profile-buttons,
+  .about-profile-actions {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+
+  .about-profile-buttons a,
+  .about-profile-actions a {
+    min-width: 0 !important;
+    width: 100% !important;
+    min-height: 42px !important;
+    font-size: 11px !important;
+    padding: 8px 10px !important;
+  }
+}
+
+/* =========================================================
+   FINAL FIX PATCH — precise scroll alignment + real themed borders
+   ========================================================= */
+.about-electric-filter-svg {
+  position: absolute !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Keep the About profile card in the restored version: image + normal buttons + text inside the left card. */
+.about-profile-card-redesign {
+  width: min(100%, 390px) !important;
+  gap: 18px !important;
+  padding: clamp(12px, 1.15vw, 16px) !important;
+  margin-left: clamp(-22px, -1.2vw, -6px) !important;
+  border-radius: 30px !important;
+  border: 3px solid rgba(255, 255, 255, 0.5) !important;
+  background: var(--glass) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+/* Base cards: clean the old unfinished pseudo layers so every theme animation starts from a stable base. */
+.about-track-card,
+.about-rd-card {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+  border-radius: 16px !important;
+  border: 2px solid rgba(255, 255, 255, 0.45) !important;
+  transform: translateZ(0) !important;
+  will-change: transform, box-shadow !important;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, background 0.28s ease, border-color 0.28s ease !important;
+}
+
+.about-track-card > *,
+.about-rd-card > * {
+  position: relative !important;
+  z-index: 4 !important;
+}
+
+.about-track-card::before,
+.about-track-card::after,
+.about-rd-card::before,
+.about-rd-card::after {
+  content: '' !important;
+  position: absolute !important;
+  pointer-events: none !important;
+  border-radius: inherit !important;
+  opacity: 0 !important;
+  transform: none !important;
+  transition: opacity 0.25s ease, transform 0.25s ease, filter 0.25s ease !important;
+}
+
+.about-track-card:hover,
+.about-rd-card:hover {
+  transform: translateY(-4px) scale(1.012) !important;
+}
+
+/* 1) Diploma / EEE — direct electric-border style from the reference: actual displaced border + glow. */
+.diploma-track {
+  --about-card-accent: #f7b733 !important;
+}
+
+.diploma-track::before {
+  inset: -4px !important;
+  z-index: 2 !important;
+  border: 2px solid var(--about-card-accent) !important;
+  background: transparent !important;
+  padding: 0 !important;
+  -webkit-mask: none !important;
+  mask: none !important;
+  filter: url(#aboutElectricBorder) drop-shadow(0 0 2px var(--about-card-accent)) drop-shadow(0 0 9px var(--about-card-accent)) !important;
+}
+
+.diploma-track::after {
+  inset: -10px !important;
+  z-index: 1 !important;
+  background:
+    linear-gradient(-30deg, rgba(247, 183, 51, 0.72), transparent 34%, transparent 66%, rgba(247, 183, 51, 0.72)),
+    radial-gradient(circle at 18% 22%, rgba(247, 183, 51, 0.55), transparent 30%),
+    radial-gradient(circle at 84% 78%, rgba(247, 183, 51, 0.38), transparent 34%) !important;
+  filter: blur(18px) !important;
+  mix-blend-mode: screen !important;
+}
+
+.diploma-track:hover {
+  border-color: rgba(247, 183, 51, 0.82) !important;
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.28), 0 0 24px rgba(247, 183, 51, 0.42) !important;
+}
+
+.diploma-track:hover::before {
+  opacity: 1 !important;
+}
+
+.diploma-track:hover::after {
+  opacity: 0.5 !important;
+  animation: aboutElectricGlowBreath 1.15s ease-in-out infinite alternate !important;
+}
+
+/* 2) B.Tech CSE-AIML + Robotics — moving circuit/data border. */
+.btech-track {
+  --about-card-accent: #00e5ff !important;
+}
+
+.btech-track::before {
+  inset: -2px !important;
+  z-index: 2 !important;
+  padding: 3px !important;
+  border: 0 !important;
+  background:
+    repeating-conic-gradient(
+      from 0deg,
+      transparent 0deg 10deg,
+      var(--about-card-accent) 10deg 16deg,
+      transparent 16deg 25deg,
+      rgba(255, 255, 255, 0.9) 25deg 28deg,
+      transparent 28deg 40deg
+    ) !important;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0) !important;
+  -webkit-mask-composite: xor !important;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0) !important;
+  mask-composite: exclude !important;
+  filter: drop-shadow(0 0 7px var(--about-card-accent)) !important;
+}
+
+.btech-track::after {
+  inset: 10px !important;
+  z-index: 1 !important;
+  background:
+    linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.82), transparent) top left / 58% 2px no-repeat,
+    linear-gradient(180deg, transparent, rgba(0, 229, 255, 0.82), transparent) top right / 2px 58% no-repeat,
+    linear-gradient(270deg, transparent, rgba(0, 229, 255, 0.82), transparent) bottom right / 58% 2px no-repeat,
+    linear-gradient(0deg, transparent, rgba(0, 229, 255, 0.82), transparent) bottom left / 2px 58% no-repeat,
+    repeating-linear-gradient(90deg, transparent 0 13px, rgba(0, 229, 255, 0.14) 13px 15px, transparent 15px 28px) !important;
+  box-shadow: inset 0 0 24px rgba(0, 229, 255, 0.16) !important;
+}
+
+.btech-track:hover {
+  border-color: rgba(0, 229, 255, 0.9) !important;
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.28), 0 0 26px rgba(0, 229, 255, 0.44) !important;
+}
+
+.btech-track:hover::before {
+  opacity: 1 !important;
+  animation: btechRoboticsBorder 1.15s steps(24, end) infinite !important;
+}
+
+.btech-track:hover::after {
+  opacity: 0.88 !important;
+  animation: btechRoboticsScan 1.05s ease-in-out infinite alternate !important;
+}
+
+/* 3) Master's AI — neural ring + pulsing model field. */
+.masters-track {
+  --about-card-accent: #a66cff !important;
+}
+
+.masters-track::before {
+  inset: -2px !important;
+  z-index: 2 !important;
+  padding: 3px !important;
+  border: 0 !important;
+  background:
+    radial-gradient(circle at 12% 12%, var(--about-card-accent) 0 4px, transparent 5px),
+    radial-gradient(circle at 88% 18%, var(--about-card-accent) 0 4px, transparent 5px),
+    radial-gradient(circle at 86% 84%, var(--about-card-accent) 0 4px, transparent 5px),
+    radial-gradient(circle at 14% 78%, var(--about-card-accent) 0 4px, transparent 5px),
+    conic-gradient(from 90deg, transparent 0 10%, var(--about-card-accent) 15% 24%, transparent 30% 42%, rgba(255,255,255,0.9) 48% 52%, transparent 58% 70%, var(--about-card-accent) 76% 84%, transparent 90% 100%) !important;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0) !important;
+  -webkit-mask-composite: xor !important;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0) !important;
+  mask-composite: exclude !important;
+  filter: drop-shadow(0 0 8px var(--about-card-accent)) !important;
+}
+
+.masters-track::after {
+  inset: 9px !important;
+  z-index: 1 !important;
+  background:
+    linear-gradient(35deg, transparent 12%, rgba(166, 108, 255, 0.3) 13%, transparent 16%, transparent 78%, rgba(166, 108, 255, 0.26) 80%, transparent 83%),
+    linear-gradient(135deg, transparent 18%, rgba(166, 108, 255, 0.22) 22%, transparent 28%, transparent 66%, rgba(166, 108, 255, 0.18) 70%, transparent 76%),
+    radial-gradient(circle at 25% 25%, rgba(166, 108, 255, 0.36) 0 3px, transparent 4px),
+    radial-gradient(circle at 74% 34%, rgba(166, 108, 255, 0.34) 0 3px, transparent 4px),
+    radial-gradient(circle at 50% 76%, rgba(166, 108, 255, 0.34) 0 3px, transparent 4px) !important;
+  filter: blur(0.2px) !important;
+}
+
+.masters-track:hover {
+  border-color: rgba(166, 108, 255, 0.9) !important;
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.28), 0 0 28px rgba(166, 108, 255, 0.48) !important;
+}
+
+.masters-track:hover::before {
+  opacity: 1 !important;
+  animation: mastersNeuralOrbit 2.3s linear infinite !important;
+}
+
+.masters-track:hover::after {
+  opacity: 0.78 !important;
+  animation: mastersNeuralPulse 1.1s ease-in-out infinite alternate !important;
+}
+
+/* 4) R&D — highlighted permanently, stronger on hover. */
+.about-rd-card {
+  --about-card-accent: #ff2bd6 !important;
+  border-color: rgba(255, 43, 214, 0.78) !important;
+  background:
+    linear-gradient(135deg, rgba(255, 43, 214, 0.14), rgba(255, 255, 255, 0.08), rgba(255, 43, 214, 0.08)),
+    var(--glass) !important;
+  box-shadow: 0 10px 38px rgba(0, 0, 0, 0.24), 0 0 28px rgba(255, 43, 214, 0.36) !important;
+}
+
+.about-rd-card::before {
+  inset: -2px !important;
+  z-index: 2 !important;
+  padding: 3px !important;
+  border: 0 !important;
+  opacity: 0.92 !important;
+  background: conic-gradient(from 180deg, transparent 0 10%, var(--about-card-accent) 13% 22%, transparent 27% 42%, rgba(255,255,255,0.95) 48% 52%, transparent 58% 70%, var(--about-card-accent) 76% 84%, transparent 90% 100%) !important;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0) !important;
+  -webkit-mask-composite: xor !important;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0) !important;
+  mask-composite: exclude !important;
+  filter: drop-shadow(0 0 10px var(--about-card-accent)) !important;
+  animation: rdImpactBorder 3.4s linear infinite !important;
+}
+
+.about-rd-card::after {
+  inset: 0 !important;
+  z-index: 1 !important;
+  opacity: 0.42 !important;
+  background:
+    radial-gradient(circle at 76% 22%, rgba(255, 43, 214, 0.46), transparent 26%),
+    linear-gradient(120deg, transparent 16%, rgba(255, 43, 214, 0.28) 50%, transparent 82%) !important;
+  filter: blur(7px) !important;
+}
+
+.about-rd-card:hover {
+  border-color: rgba(255, 43, 214, 1) !important;
+  transform: translateY(-5px) scale(1.016) !important;
+  box-shadow: 0 12px 42px rgba(0, 0, 0, 0.34), 0 0 34px rgba(255, 43, 214, 0.64), 0 0 64px rgba(255, 43, 214, 0.34) !important;
+}
+
+.about-rd-card:hover::after {
+  opacity: 0.74 !important;
+  animation: rdImpactSweep 1.35s ease-in-out infinite alternate !important;
+}
+
+@keyframes aboutElectricGlowBreath {
+  from { opacity: 0.36; transform: scale(1.02); }
+  to { opacity: 0.66; transform: scale(1.06); }
+}
+
+@keyframes btechRoboticsBorder {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes btechRoboticsScan {
+  from { background-size: 44% 2px, 2px 44%, 44% 2px, 2px 44%, 28px 100%; opacity: 0.58; }
+  to { background-size: 78% 2px, 2px 78%, 78% 2px, 2px 78%, 18px 100%; opacity: 0.96; }
+}
+
+@keyframes mastersNeuralOrbit {
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes mastersNeuralPulse {
+  from { opacity: 0.42; transform: scale(0.985); }
+  to { opacity: 0.88; transform: scale(1.012); }
+}
+
+@keyframes rdImpactBorder {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rdImpactSweep {
+  from { transform: translateX(-1.5%) scale(0.99); }
+  to { transform: translateX(1.5%) scale(1.016); }
+}
+
+/* =========================================================
+   TRUE FINAL ABOUT CARD BORDER REBUILD + SCROLL STABILITY
+   - Clears the previous hobby-card hover overlays from education/R&D cards.
+   - Keeps only glass/blur card styling.
+   - Rebuilds hover as border-only animations, no internal rotating/tilt/static line layers.
+   ========================================================= */
+
+html {
+  scroll-padding-top: 0 !important;
+}
+
+.about-container,
+.Hobbies-container,
+.skills-container,
+.projects-container,
+.contact-container,
+.about,
+.Hobbies,
+.skills,
+.projects,
+.contact {
+  scroll-margin-top: 0 !important;
+}
+
+.about-track-card,
+.about-rd-card {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: visible !important;
+  border-radius: 16px !important;
+  border: 2px solid rgba(255, 255, 255, 0.52) !important;
+  background: var(--glass) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.10) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  transform: translateZ(0) !important;
+  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease, background 0.28s ease !important;
+}
+
+.about-track-card > *,
+.about-rd-card > * {
+  position: relative !important;
+  z-index: 5 !important;
+}
+
+/* Hard reset for every old/unfinished pseudo-hover layer. */
+.about-track-card::before,
+.about-track-card::after,
+.about-rd-card::before,
+.about-rd-card::after {
+  content: "" !important;
+  position: absolute !important;
+  pointer-events: none !important;
+  border-radius: inherit !important;
+  opacity: 0 !important;
+  inset: -3px !important;
+  z-index: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  background: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  padding: 0 !important;
+  -webkit-mask: none !important;
+  mask: none !important;
+  animation: none !important;
+  transition: opacity 0.22s ease, filter 0.22s ease, transform 0.22s ease !important;
+}
+
+.about-track-card:hover,
+.about-rd-card:hover {
+  transform: translateY(-4px) scale(1.01) !important;
+}
+
+/* Make labels/text readable on hover without importing hobby-card text-color flips. */
+.about-track-card:hover .track-topline,
+.about-rd-card:hover .track-topline,
+.about-track-card:hover .track-topline i,
+.about-rd-card:hover .track-topline i,
+.about-track-card:hover h4,
+.about-rd-card:hover h4,
+.about-track-card:hover p,
+.about-rd-card:hover p {
+  color: inherit !important;
+  text-shadow: none !important;
+}
+
+.about-track-card:hover .track-topline,
+.about-rd-card:hover .track-topline {
+  border-color: currentColor !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 1) EEE: reference-style turbulent electric border, one color, border only. */
+.diploma-track {
+  --about-border-accent: #ffca3a !important;
+}
+
+.diploma-track::before {
+  inset: -4px !important;
+  z-index: 2 !important;
+  border: 2px solid var(--about-border-accent) !important;
+  filter: url(#aboutElectricBorder) drop-shadow(0 0 3px var(--about-border-accent)) drop-shadow(0 0 9px var(--about-border-accent)) !important;
+}
+
+.diploma-track::after {
+  inset: -6px !important;
+  z-index: 0 !important;
+  border: 2px solid rgba(255, 202, 58, 0.42) !important;
+  filter: blur(7px) !important;
+}
+
+.diploma-track:hover {
+  border-color: rgba(255, 202, 58, 0.95) !important;
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.28), 0 0 22px rgba(255, 202, 58, 0.38) !important;
+}
+
+.diploma-track:hover::before {
+  opacity: 1 !important;
+}
+
+.diploma-track:hover::after {
+  opacity: 0.75 !important;
+  animation: eeeOuterGlowOnly 1.2s ease-in-out infinite alternate !important;
+}
+
+/* 2) B.Tech: robotics/data border — marching circuit ticks on the border only. */
+.btech-track {
+  --about-border-accent: #00e5ff !important;
+}
+
+.btech-track::before {
+  inset: -3px !important;
+  z-index: 2 !important;
+  padding: 3px !important;
+  background:
+    repeating-linear-gradient(90deg, var(--about-border-accent) 0 18px, transparent 18px 30px) top left / 100% 3px repeat-x,
+    repeating-linear-gradient(180deg, var(--about-border-accent) 0 18px, transparent 18px 30px) top right / 3px 100% repeat-y,
+    repeating-linear-gradient(270deg, var(--about-border-accent) 0 18px, transparent 18px 30px) bottom right / 100% 3px repeat-x,
+    repeating-linear-gradient(0deg, var(--about-border-accent) 0 18px, transparent 18px 30px) bottom left / 3px 100% repeat-y !important;
+  background-repeat: repeat-x, repeat-y, repeat-x, repeat-y !important;
+  filter: drop-shadow(0 0 7px var(--about-border-accent)) !important;
+}
+
+.btech-track::after {
+  inset: -7px !important;
+  z-index: 0 !important;
+  border: 2px solid rgba(0, 229, 255, 0.34) !important;
+  filter: blur(8px) !important;
+}
+
+.btech-track:hover {
+  border-color: rgba(0, 229, 255, 0.95) !important;
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.28), 0 0 24px rgba(0, 229, 255, 0.42) !important;
+}
+
+.btech-track:hover::before {
+  opacity: 1 !important;
+  animation: btechBorderMarch 0.85s linear infinite !important;
+}
+
+.btech-track:hover::after {
+  opacity: 0.65 !important;
+}
+
+/* 3) Master's AI: neural pulse border — orbiting glow points stay on border, not inside. */
+.masters-track {
+  --about-border-accent: #a66cff !important;
+}
+
+.masters-track::before {
+  inset: -4px !important;
+  z-index: 2 !important;
+  padding: 3px !important;
+  background:
+    radial-gradient(circle at 0% 0%, #ffffff 0 3px, var(--about-border-accent) 4px, transparent 7px),
+    radial-gradient(circle at 100% 0%, var(--about-border-accent) 0 5px, transparent 8px),
+    radial-gradient(circle at 100% 100%, #ffffff 0 3px, var(--about-border-accent) 4px, transparent 7px),
+    radial-gradient(circle at 0% 100%, var(--about-border-accent) 0 5px, transparent 8px),
+    linear-gradient(90deg, transparent, var(--about-border-accent), transparent) top / 100% 3px no-repeat,
+    linear-gradient(180deg, transparent, var(--about-border-accent), transparent) right / 3px 100% no-repeat,
+    linear-gradient(270deg, transparent, var(--about-border-accent), transparent) bottom / 100% 3px no-repeat,
+    linear-gradient(0deg, transparent, var(--about-border-accent), transparent) left / 3px 100% no-repeat !important;
+  filter: drop-shadow(0 0 8px var(--about-border-accent)) !important;
+}
+
+.masters-track::after {
+  inset: -8px !important;
+  z-index: 0 !important;
+  border: 2px solid rgba(166, 108, 255, 0.36) !important;
+  filter: blur(9px) !important;
+}
+
+.masters-track:hover {
+  border-color: rgba(166, 108, 255, 0.95) !important;
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.28), 0 0 26px rgba(166, 108, 255, 0.46) !important;
+}
+
+.masters-track:hover::before {
+  opacity: 1 !important;
+  animation: mastersBorderPulse 1.05s ease-in-out infinite alternate !important;
+}
+
+.masters-track:hover::after {
+  opacity: 0.7 !important;
+  animation: mastersOuterGlowOnly 1.05s ease-in-out infinite alternate !important;
+}
+
+/* 4) R&D: highlighted by default with impact border, stronger on hover. */
+.about-rd-card {
+  --about-border-accent: #ff2bd6 !important;
+  border-color: rgba(255, 43, 214, 0.88) !important;
+  background: var(--glass) !important;
+  box-shadow: 0 10px 38px rgba(0, 0, 0, 0.24), 0 0 28px rgba(255, 43, 214, 0.34) !important;
+}
+
+.about-rd-card::before {
+  inset: -3px !important;
+  z-index: 2 !important;
+  padding: 3px !important;
+  opacity: 0.95 !important;
+  background:
+    linear-gradient(90deg, transparent 0%, var(--about-border-accent) 28%, #ffffff 50%, var(--about-border-accent) 72%, transparent 100%) top / 180% 3px no-repeat,
+    linear-gradient(180deg, transparent 0%, var(--about-border-accent) 28%, #ffffff 50%, var(--about-border-accent) 72%, transparent 100%) right / 3px 180% no-repeat,
+    linear-gradient(270deg, transparent 0%, var(--about-border-accent) 28%, #ffffff 50%, var(--about-border-accent) 72%, transparent 100%) bottom / 180% 3px no-repeat,
+    linear-gradient(0deg, transparent 0%, var(--about-border-accent) 28%, #ffffff 50%, var(--about-border-accent) 72%, transparent 100%) left / 3px 180% no-repeat !important;
+  filter: drop-shadow(0 0 10px var(--about-border-accent)) !important;
+  animation: rdBorderFlow 2.2s linear infinite !important;
+}
+
+.about-rd-card::after {
+  inset: -9px !important;
+  z-index: 0 !important;
+  opacity: 0.7 !important;
+  border: 2px solid rgba(255, 43, 214, 0.34) !important;
+  filter: blur(10px) !important;
+}
+
+.about-rd-card:hover {
+  border-color: rgba(255, 43, 214, 1) !important;
+  transform: translateY(-5px) scale(1.014) !important;
+  box-shadow: 0 12px 42px rgba(0, 0, 0, 0.32), 0 0 36px rgba(255, 43, 214, 0.62) !important;
+}
+
+.about-rd-card:hover::after {
+  opacity: 0.96 !important;
+}
+
+@keyframes eeeOuterGlowOnly {
+  from { opacity: 0.45; }
+  to { opacity: 0.85; }
+}
+
+@keyframes btechBorderMarch {
+  from {
+    background-position: 0 0, 100% 0, 0 100%, 0 0;
+  }
+  to {
+    background-position: 30px 0, 100% 30px, -30px 100%, 0 -30px;
+  }
+}
+
+@keyframes mastersBorderPulse {
+  from { opacity: 0.62; filter: drop-shadow(0 0 5px var(--about-border-accent)); }
+  to { opacity: 1; filter: drop-shadow(0 0 12px var(--about-border-accent)); }
+}
+
+@keyframes mastersOuterGlowOnly {
+  from { opacity: 0.38; }
+  to { opacity: 0.8; }
+}
+
+@keyframes rdBorderFlow {
+  from {
+    background-position: -90% 0, 100% -90%, 90% 100%, 0 90%;
+  }
+  to {
+    background-position: 90% 0, 100% 90%, -90% 100%, 0 -90%;
+  }
+}
+/* =========================================================
+   FINAL SIMPLE ABOUT CARD FIX
+   - About cards use the same glass, shine, hover, and zoom language as Hobbies cards.
+   - No animated border, no card border-color change.
+   - Only extra effect: card-specific under-glow on hover.
+   ========================================================= */
+.about-track-card,
+.about-rd-card {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+  cursor: pointer !important;
+  border-radius: 16px !important;
+  border: 3px solid rgba(255, 255, 255, 0.5) !important;
+  background: var(--glass) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+  backdrop-filter: blur(6.2px) !important;
+  -webkit-backdrop-filter: blur(6.2px) !important;
+  transform: none !important;
+  transition: all 0.3s ease !important;
+  --about-hover-glow: rgba(255, 255, 255, 0.55);
+  --about-hover-shadow: rgba(255, 255, 255, 0.55);
+  --about-hover-glow-soft: rgba(255, 255, 255, 0.3);
+}
+
+.about-track-card > *,
+.about-rd-card > * {
+  position: relative !important;
+  z-index: 3 !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Reset every older electric/conic/border animation layer and reuse the Hobbies shine sweep. */
+.about-track-card::before,
+.about-rd-card::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 auto auto -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: inherit !important;
+  background: linear-gradient(90deg, transparent, var(--shine), transparent) !important;
+  box-shadow: none !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  opacity: 1 !important;
+  transform: none !important;
+  rotate: 0deg !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+  -webkit-mask: none !important;
+  mask: none !important;
+  animation: none !important;
+  transition: transform 0.5s ease !important;
+}
+
+
+
+/* Same hover feel as Hobbies: theme hover background, shine sweep, and zoom-in. */
+.about-track-card:hover,
+.about-rd-card:hover {
+  background: color-mix(in srgb, var(--primary-color), transparent 30%) !important;
+  border: 3px solid rgba(246, 243, 243, 0) !important;
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.28), 0 0 24px var(--primary-color) !important;
+  backdrop-filter: blur(6.2px) !important;
+  -webkit-backdrop-filter: blur(6.2px) !important;
+  transform: scale(1.05) !important;
+}
+
+.about-track-card:hover::before,
+.about-rd-card:hover::before {
+  transform: translateX(200%) !important;
+}
+
+.about-track-card:hover::after,
+.about-rd-card:hover::after {
+  opacity: 0.95 !important;
+  transform: scaleX(1) !important;
+}
+
+
+.about-track-card:hover .track-topline,
+.about-rd-card:hover .track-topline {
+  border: 2px solid var(--text-hover) !important;
+  background: color-mix(in srgb, var(--text-alt) 10%, transparent) !important;
+}
+
+.about-track-card:hover .track-topline,
+.about-rd-card:hover .track-topline,
+.about-track-card:hover .track-topline i,
+.about-rd-card:hover .track-topline i,
+.about-track-card:hover h4,
+.about-rd-card:hover h4,
+.about-track-card:hover p,
+.about-rd-card:hover p {
+  color: var(--text-hover) !important;
+}
+
+/* No card-border color changes. These variables affect only the under-glow. */
+.diploma-track {
+  --about-hover-glow: rgba(255, 202, 58, 0.92);
+  --about-hover-shadow: rgba(255, 202, 58, 0.92);
+  --about-hover-glow-soft: rgba(255, 202, 58, 0.48);
+}
+
+.btech-track {
+  --about-hover-glow: rgba(0, 229, 255, 0.92);
+  --about-hover-shadow: rgba(0, 229, 255, 0.92);
+  --about-hover-glow-soft: rgba(0, 229, 255, 0.48);
+}
+
+.masters-track {
+  --about-hover-glow: rgba(166, 108, 255, 0.92);
+  --about-hover-shadow: rgba(166, 108, 255, 0.92);
+  --about-hover-glow-soft: rgba(166, 108, 255, 0.48);
+}
+
+.about-rd-card {
+  --about-hover-glow: linear-gradient(90deg, rgba(255, 202, 58, 0.95), rgba(236, 20, 20, 0.95), rgba(166, 108, 255, 0.95), rgba(58, 255, 107, 0.95));
+  --about-hover-shadow: rgba(0, 255, 34, 0.826);
+  --about-hover-glow-soft: rgba(0, 229, 255, 0.34);
+}
+
+
+@keyframes aboutResearchUnderGlowFlow {
+  from { background-position: 0% 50%; }
+  to { background-position: 260% 50%; }
+}
+
+@media (max-width: 947px) {
+  .about-track-card:hover,
+  .about-rd-card:hover {
+    transform: scale(1.025) !important;
+  }
+}
+
+/* =========================================================
+   MATRIX / SKILLS LEFT-CARD REDESIGN
+   - Keeps the existing #skills section, right-side bars, CV buttons, JS, and layout hooks.
+   - Replaces only the left paragraph block with six About-style glass cards.
+   ========================================================= */
+.skills .title {
+  font-size: clamp(30px, 3vw, 42px) !important;
+  line-height: 1.1 !important;
+}
+
+.skills .skills-content .left.skills-matrix-left {
+  width: calc(60% - 10px) !important;
+  margin-top: 10px !important;
+}
+
+.skills-card-grid {
+  width: 100% !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: clamp(10px, 1vw, 16px) !important;
+  align-items: stretch !important;
+}
+
+.skills-matrix-card {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+  cursor: pointer !important;
+  min-width: 0 !important;
+  min-height: clamp(128px, 15vh, 156px) !important;
+  padding: clamp(12px, 1vw, 16px) !important;
+  border-radius: 16px !important;
+  border: 3px solid rgba(255, 255, 255, 0.5) !important;
+  background: var(--glass) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+  backdrop-filter: blur(6.2px) !important;
+  -webkit-backdrop-filter: blur(6.2px) !important;
+  transform: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.skills-matrix-card > * {
+  position: relative !important;
+  z-index: 3 !important;
+  transition: all 0.3s ease !important;
+}
+
+.skills-matrix-card::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 auto auto -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: inherit !important;
+  background: linear-gradient(90deg, transparent, var(--shine), transparent) !important;
+  box-shadow: none !important;
+  filter: none !important;
+  opacity: 1 !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+  animation: none !important;
+  transition: transform 0.5s ease !important;
+}
+
+.skills-matrix-card h4 {
+  color: var(--primary-color) !important;
+  font-size: clamp(15px, 1.04vw, 19px) !important;
+  line-height: 1.08 !important;
+  font-weight: 900 !important;
+  margin: 0 0 clamp(6px, 0.55vw, 8px) !important;
+  overflow-wrap: anywhere !important;
+}
+
+.skills-matrix-card p {
+  color: var(--text-color) !important;
+  font-size: clamp(11.2px, 0.75vw, 13px) !important;
+  line-height: 1.32 !important;
+  font-weight: 500 !important;
+  text-align: left !important;
+  margin: 0 !important;
+}
+
+.skills-matrix-card .track-topline {
+  margin-bottom: clamp(7px, 0.7vw, 10px) !important;
+  padding: 6px 10px !important;
+  font-size: clamp(8px, 0.58vw, 10px) !important;
+}
+
+.skills-matrix-card .track-topline i {
+  font-size: clamp(11px, 0.82vw, 14px) !important;
+}
+
+.skills-matrix-card:hover {
+  background: color-mix(in srgb, var(--primary-color), transparent 30%) !important;
+  border: 3px solid rgba(246, 243, 243, 0) !important;
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.28), 0 0 24px var(--primary-color) !important;
+  backdrop-filter: blur(6.2px) !important;
+  -webkit-backdrop-filter: blur(6.2px) !important;
+  transform: scale(1.05) !important;
+}
+
+.skills-matrix-card:hover::before {
+  transform: translateX(200%) !important;
+}
+
+.skills-matrix-card:hover .track-topline {
+  border: 2px solid var(--text-hover) !important;
+  background: color-mix(in srgb, var(--text-alt) 10%, transparent) !important;
+}
+
+.skills-matrix-card:hover .track-topline,
+.skills-matrix-card:hover .track-topline i,
+.skills-matrix-card:hover h4,
+.skills-matrix-card:hover p {
+  color: var(--text-hover) !important;
+}
+
+@media (max-width: 1350px) {
+  .skills-card-grid {
+    gap: clamp(8px, 0.9vw, 12px) !important;
+  }
+
+  .skills-matrix-card {
+    min-height: clamp(124px, 14vh, 150px) !important;
+    padding: clamp(10px, 0.85vw, 14px) !important;
+  }
+
+  .skills-matrix-card h4 {
+    font-size: clamp(14px, 1vw, 17px) !important;
+  }
+
+  .skills-matrix-card p {
+    font-size: clamp(10.8px, 0.84vw, 12.4px) !important;
+    line-height: 1.28 !important;
+  }
+}
+
+@media (max-width: 947px) {
+  .skills .skills-content .left.skills-matrix-left {
+    width: 100% !important;
+    margin-top: 0 !important;
+  }
+
+  .skills-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 16px !important;
+  }
+
+  .skills-matrix-card {
+    min-height: auto !important;
+    padding: 18px !important;
+  }
+
+  .skills-matrix-card h4 {
+    font-size: clamp(17px, 3.2vw, 21px) !important;
+  }
+
+  .skills-matrix-card p {
+    font-size: clamp(13px, 2.2vw, 15px) !important;
+    line-height: 1.45 !important;
+  }
+}
+
+@media (max-width: 690px) {
+  .skills-card-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .skills-matrix-card {
+    width: 100% !important;
+    max-width: 620px !important;
+    margin: 0 auto !important;
+    padding: 20px !important;
+  }
+
+  .skills-matrix-card p {
+    font-size: 14px !important;
+  }
+}
+
+
+
+/* =========================================================
+   ABOUT FINAL TEXT COLOR + PROFILE CARD HOVER PATCH
+   - Secondary color only for the named technical focus words.
+   - Adds the same glass/shine hover language to the profile image card.
+   ========================================================= */
+.about-track-card h4 span {
+  color: var(--secondary-color) !important;
+}
+
+.about-rd-card h4 span {
+  display: inline !important;
+  color: var(--secondary-color) !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  margin-top: 0 !important;
+  font-weight: inherit !important;
+}
+
+.about-profile-card-redesign {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+  cursor: pointer !important;
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease, transform 0.3s ease !important;
+}
+
+.about-profile-card-redesign > * {
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+.about-profile-card-redesign::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, var(--shine), transparent) !important;
+  transition: transform 0.5s ease !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+}
+
+.about-profile-card-redesign:hover {
+  background: var(--glass) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  transform: translateY(-4px) scale(1.01) !important;
+}
+
+.about-profile-card-redesign:hover::before {
+  transform: translateX(200%) !important;
+}
+
+.about .about-content .left .about-profile-card-redesign > img {
+  border: 3px solid rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease, transform 0.3s ease !important;
+}
+
+.about-profile-card-redesign:hover > img {
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3) !important;
+  filter: brightness(1.03) saturate(1.04) !important;
+  transform: scale(1.01) !important;
+}
+
+/* =========================================================
+   ABOUT SECONDARY TEXT SHADOW + PROFILE CARD/IMAGE HOVER FIX V2
+   - Adds the same title shadow to secondary-color technical words.
+   - Keeps profile card hover as glass/shadow only: no size jump.
+   - Gives the profile image its own hover refinement.
+   ========================================================= */
+.about-track-card h4 span,
+.about-rd-card h4 span {
+  color: var(--secondary-color) !important;
+  text-shadow: 1px 1px 3px #000000be !important;
+}
+.about-track-card:hover h4 span,
+.about-rd-card:hover h4 span {
+  text-shadow: none !important;
+}
+@media (min-width: 948px) {
+  .about .about-content.about-content-v2 {
+    grid-template-columns: minmax(350px, 0.9fr) minmax(620px, 1.9fr) !important;
+    gap: clamp(28px, 3.4vw, 58px) !important;
+  }
+
+  .about-profile-card-redesign {
+    width: min(100%, 400px) !important;
+    padding: clamp(20px, 1vw, 20px) !important;
+  }
+}
+
+.about-profile-card-redesign {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+  background: var(--glass) !important;
+  border: 3px solid rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  transform: none !important;
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease !important;
+}
+
+.about-profile-card-redesign:hover {
+  background: var(--glass) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  transform: none !important;
+}
+
+.about-profile-card-redesign::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, var(--shine), transparent) !important;
+  transition: transform 0.5s ease !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+}
+
+.about-profile-card-redesign:hover::before {
+  transform: translateX(200%) !important;
+}
+
+.about .about-content .left .about-profile-card-redesign > img {
+  border: 3px solid rgba(255, 255, 255, 0.5) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  filter: none !important;
+  transform: none !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease, backdrop-filter 0.3s ease !important;
+}
+
+.about .about-content .left .about-profile-card-redesign > img:hover,
+.about-profile-card-redesign:hover > img {
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  filter: brightness(1.03) saturate(1.04) !important;
+  transform: none !important;
+}
+
+@media (max-height: 820px) and (min-width: 948px) {
+  .about .about-content.about-content-v2 {
+    grid-template-columns: minmax(330px, 0.86fr) minmax(600px, 1.94fr) !important;
+    gap: clamp(24px, 3vw, 44px) !important;
+  }
+
+  .about-profile-card-redesign {
+    width: min(100%, 390px) !important;
   }
 }
