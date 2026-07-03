@@ -26,10 +26,112 @@ $(document).ready(function() {
     $('.theme-selector').on('mouseover click', applyBlurEffect);
     $(window).on('scroll load', applyBlurEffect);
 
+    // Soft-bounce scrolling for internal section links.
+    // Fixes the first-click offset by measuring after the navbar is in its sticky state,
+    // then makes one tiny correction at the end so you do not have to click twice.
+    function clampScrollY(value) {
+        const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+        return Math.max(0, Math.min(value, maxScroll));
+    }
+
+    function easeOutBackSmall(t) {
+        const c1 = 0.72;
+        const c3 = c1 + 1;
+        return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2);
+    }
+
+    function forceInstantScrollMode() {
+        document.documentElement.style.scrollBehavior = 'auto';
+        document.body.style.scrollBehavior = 'auto';
+        $('html, body').css('scrollBehavior', 'auto');
+    }
+
+    function getNavbarHeightForTarget(hash) {
+        const navbar = document.querySelector('.navbar');
+        if (!navbar || hash === '#home') return 0;
+
+        const alreadySticky = navbar.classList.contains('sticky');
+        if (!alreadySticky) navbar.classList.add('sticky');
+        const height = navbar.offsetHeight || 0;
+        return height;
+    }
+
+    function getSectionTargetY(hash) {
+        if (hash === '#home') return 0;
+
+        const target = document.querySelector(hash);
+        if (!target) return null;
+
+        const navHeight = getNavbarHeightForTarget(hash);
+        const sectionBreathingRoom = {
+    '#about': 30,
+    '#skills': 30
+};
+
+const breathingRoom = sectionBreathingRoom[hash] ?? (window.innerWidth <= 947 ? 8 : 6);
+        const targetY = target.getBoundingClientRect().top + window.pageYOffset - navHeight - breathingRoom;
+        return clampScrollY(targetY);
+    }
+
+    function animateScrollTo(destination, duration = 620, done) {
+        const start = window.pageYOffset || document.documentElement.scrollTop || 0;
+        const distance = destination - start;
+
+        if (Math.abs(distance) < 2 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            window.scrollTo(0, destination);
+            if (typeof done === 'function') done();
+            return;
+        }
+
+        const startTime = performance.now();
+
+        function step(now) {
+            const progress = Math.min((now - startTime) / duration, 1);
+            const eased = easeOutBackSmall(progress);
+            window.scrollTo(0, clampScrollY(start + distance * eased));
+
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            } else {
+                window.scrollTo(0, clampScrollY(destination));
+                if (typeof done === 'function') done();
+            }
+        }
+
+        requestAnimationFrame(step);
+    }
+
+    function smoothSectionScroll(hash) {
+        forceInstantScrollMode();
+
+        // Wait two frames so sticky navbar/layout dimensions are final before measuring.
+        requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+                const targetY = getSectionTargetY(hash);
+                if (targetY === null) return;
+
+                const currentY = window.pageYOffset || document.documentElement.scrollTop || 0;
+                const duration = Math.min(780, Math.max(500, Math.abs(targetY - currentY) * 0.2));
+
+                animateScrollTo(targetY, duration, function() {
+                    // Automatic final correction replaces the old "second click" behavior.
+                    setTimeout(function() {
+                        const correctedY = getSectionTargetY(hash);
+                        if (correctedY === null) return;
+
+                        const diff = correctedY - (window.pageYOffset || document.documentElement.scrollTop || 0);
+                        if (Math.abs(diff) > 2) {
+                            animateScrollTo(correctedY, 180);
+                        }
+                    }, 80);
+                });
+            });
+        });
+    }
+
     // Slide-up script for scroll-up button
     $('.scroll-up-btn').click(function() {
-        $('html').animate({ scrollTop: 0 });
-        $('html').css("scrollBehavior", "auto");
+        smoothSectionScroll('#home');
     });
 
     // Store the actual navbar height in CSS so scroll targets do not use brittle fixed offsets.
@@ -43,30 +145,15 @@ $(document).ready(function() {
     updateNavHeightVariable();
     $(window).on('resize load scroll', updateNavHeightVariable);
 
-    // Smooth section scrolling with dynamic navbar height.
-    $('.navbar .menu li a, .home .home-content a').click(function(event) {
+    // Internal section links: navbar, home CTAs, About buttons, and any future section button.
+    $(document).on('click', 'a[href^="#"]', function(event) {
         const href = $(this).attr('href');
-        if (!href || !href.startsWith('#')) return;
-
-        const target = document.querySelector(href);
-        if (!target) return;
+        if (!href || href === '#' || !document.querySelector(href)) return;
 
         event.preventDefault();
-        $('html').css("scrollBehavior", "auto");
+        smoothSectionScroll(href);
 
-        const navbar = document.querySelector('.navbar');
-        const navHeight = navbar ? navbar.offsetHeight : 0;
-        const breathingRoom = window.innerWidth <= 947 ? 12 : 10;
-        const targetY = href === '#home'
-            ? 0
-            : target.getBoundingClientRect().top + window.pageYOffset - navHeight - breathingRoom;
-
-        window.scrollTo({
-            top: Math.max(0, targetY),
-            behavior: 'smooth'
-        });
-
-        $('.navbar .menu').removeClass("active");
+        $('.navbar .menu').removeClass('active');
         $('.nav-toggle').attr('aria-expanded', 'false');
         $('.nav-toggle i').addClass('fa-bars').removeClass('fa-xmark');
     });
@@ -88,7 +175,7 @@ $(document).ready(function() {
     });
 
     var typed2 = new Typed(".typing-2", {
-        strings: ["AI Systems", "Robotic Ideas", "Creative Builds", "Prototypes"],
+        strings: ["Research & Development", "Robotics + AI", "Intelligent Systems", "Creative Engineering"],
         typeSpeed: 100,
         backSpeed: 60,
         loop: true
